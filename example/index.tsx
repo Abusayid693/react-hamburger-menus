@@ -1,12 +1,17 @@
-import 'react-app-polyfill/ie11';
 import * as React from 'react';
+import 'react-app-polyfill/ie11';
 import * as ReactDOM from 'react-dom';
-import { Thing } from '../.';
+import { GhostButton } from '../src/GhostButton/GhostButton';
 
 const App = () => {
   return (
     <div>
-      <Thing />
+      <GhostButton>
+        <ul>
+          <li>Home</li>
+          <li>Contact</li>
+        </ul>
+      </GhostButton>
     </div>
   );
 };

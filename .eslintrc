@@ -1,0 +1,12 @@
+{
+    "parser": "@babel/eslint-parser",
+    "plugins": ["unused-imports"],
+    "rules": {
+      "no-unused-vars": "on",
+      "unused-imports/no-unused-imports": "on",
+      "unused-imports/no-unused-vars": [
+      	"warn",
+      	{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+      ]
+    }
+  }
