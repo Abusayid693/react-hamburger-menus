@@ -1,5 +1,8 @@
 {
-  "version": "0.1.0",
+  "name": "react-navbar",
+  "npmName": "react-navbar",
+  "description": "A react library for creating animated navigation panels.",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -20,7 +23,7 @@
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "compile:sass": "node-sass src/Button/sass/style.scss src/Button/style.css -w"
+    "compile:sass": "node-sass src/**/sass/style.scss src/**/style.css -w"
   },
   "peerDependencies": {
     "react": ">=16"

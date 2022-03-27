@@ -15,10 +15,11 @@ interface Styles {
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   styles?: Styles;
+  className?: string;
 }
 
 export const GhostNavbar = (props: Props) => {
-  const { styles, children } = props;
+  const { styles, children, className } = props;
 
   var cssVariables = {
     '--my-css-var': styles?.floatButtonSize ?? 1,
@@ -30,33 +31,32 @@ export const GhostNavbar = (props: Props) => {
 
   return (
     <div
-      className="navigation"
+      className={`react-navbar-ghost-navigation ${className}`}
       {...props}
       style={{
         ...styles?.navigation,
         ...cssVariables,
       }}
     >
-      <input type="checkbox" className="navigation__checkbox" id="nav-toggle" />
+      <input type="checkbox" className="react-navbar-ghost-navigation__checkbox" id="nav-toggle" />
       <label
         htmlFor="nav-toggle"
-        className="navigation__button"
-        style={styles?.navigationButton }
+        className="react-navbar-ghost-navigation__button"
+        style={styles?.navigationButton}
       >
         <span
-          className="navigation__icon"
+          className="react-navbar-ghost-navigation__icon"
           style={styles?.navigationIcon}
         ></span>
         &nbsp;
       </label>
       <div
-        className="navigation__background"
-        style={styles?.navigationBackground
-        }
+        className="react-navbar-ghost-navigation__background"
+        style={styles?.navigationBackground}
       >
         &nbsp;
       </div>
-      <nav className="navigation__nav">
+      <nav className="react-navbar-ghost-navigation__nav">
         {children ? (
           children
         ) : (
