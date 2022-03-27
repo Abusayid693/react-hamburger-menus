@@ -1,12 +1,14 @@
 import { Meta } from '@storybook/react';
-import React from "react";
+import React from 'react';
 import { GhostNavbar } from '../src/GhostNavbar/GhostNavbar';
 
 const meta: Meta = {
-    title: 'Ghost Navbar',
-    component: GhostNavbar,
-  };
-  
-  export default meta
+  title: 'Ghost Navbar',
+  component: GhostNavbar,
+};
 
-  export const Default = ()=> <GhostNavbar styles={{navigationBackground:{backgroundColor: 'red'}}}/>
+export default meta;
+
+export const Default = () => (
+  <GhostNavbar styles={{ navigation: { fontFamily: 'monospace' } }} />
+);

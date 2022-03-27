@@ -1,7 +1,14 @@
 .s-navigation {
   position: relative;
   user-select: none !important;
-  font-size: 10px; }
+  font-size: 10px;
+  font-family: inherit; }
+  .s-navigation *,
+  .s-navigation *::after,
+  .s-navigation *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; }
   .s-navigation__checkbox {
     display: none; }
   .s-navigation__button {
@@ -34,7 +41,7 @@
       transition: top 0.3s;
       user-select: none !important; }
     .s-navigation__icon::before, .s-navigation__icon::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0; }
     .s-navigation__icon::before {
@@ -74,7 +81,7 @@
       .s-navigation__background ul > * {
         font-size: 1.7em;
         margin: 4px 0;
-        padding: 5.5px 10%; }
+        padding: 9px 10%; }
       .s-navigation__background ul li:hover {
         background-color: rgba(127, 255, 212, 0.1) !important; }
     .s-navigation__background--left {

@@ -10,6 +10,9 @@ interface Styles {
   floatButtonX?: string;
   floatButtonY?: string;
   listHoverColor?: [string, string];
+  fontColor?: string;
+  fontSize?: string;
+  fontHoverColor?: string;
 }
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -27,6 +30,9 @@ export const GhostNavbar = (props: Props) => {
     '--floatButtonY': styles?.floatButtonY ?? '2%',
     '--listHoverColor-1': styles?.listHoverColor?.[0] ?? 'transparent',
     '--listHoverColor-2': styles?.listHoverColor?.[1] ?? '#fff',
+    '--fontColor': styles?.fontColor ?? 'pink',
+    '--fontSize': styles?.fontSize ?? '3em',
+    '--fontHoverColor': styles?.fontHoverColor ?? 'blue'
   } as React.CSSProperties;
 
   return (
@@ -38,7 +44,11 @@ export const GhostNavbar = (props: Props) => {
         ...cssVariables,
       }}
     >
-      <input type="checkbox" className="react-navbar-ghost-navigation__checkbox" id="nav-toggle" />
+      <input
+        type="checkbox"
+        className="react-navbar-ghost-navigation__checkbox"
+        id="nav-toggle"
+      />
       <label
         htmlFor="nav-toggle"
         className="react-navbar-ghost-navigation__button"

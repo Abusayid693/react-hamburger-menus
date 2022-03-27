@@ -1,24 +1,28 @@
 @import './base.scss';
+@import '../../preset.scss';
 
 .react-navbar-ghost-navigation {
-  font-family: inherit;
+  @include preset;
+
   position: relative;
-  font-size: 12.5px;
+  font-size: 10px;
+  font-family: inherit;
+  
   &__checkbox {
-    display: none;  
-  } 
- 
+    display: none;
+  }
+
   &__button {
     background-color: $color-white;
-    width: 7rem;
-    height: 7rem;
+    width: 7em;
+    height: 7em;
     position: fixed;
     top: var(--floatButtonY);
     border-radius: 50%;
     right: var(--floatButtonX);
     z-index: 1001;
     text-align: center;
-    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    box-shadow: 0 1em 3em rgba($color-black, 0.1);
     user-select: none;
     transform: scale(var(--my-css-var));
   }
@@ -26,12 +30,12 @@
   &__icon {
     // @include centerItem;
     position: relative;
-    margin-top: 3.5rem !important;
+    margin-top: 3.5em !important;
     cursor: pointer;
     &,
     &::before,
     &::after {
-      width: 3rem;
+      width: 3em;
       height: 2px;
       background-color: $color-black;
       display: inline-block;
@@ -45,19 +49,19 @@
       left: 0;
     }
     &::before {
-      top: -0.8rem;
+      top: -0.8em;
     }
     &::after {
-      top: 0.8rem;
+      top: 0.8em;
     }
   }
 
   &__button:hover &__icon::before {
-    top: -1rem;
+    top: -1em;
   }
 
   &__button:hover &__icon::after {
-    top: 1rem;
+    top: 1em;
   }
 
   &__checkbox:checked + &__button &__icon::after {
@@ -75,12 +79,12 @@
   }
 
   &__background {
-    width: 6rem;
-    height: 6rem;
+    width: 6em;
+    height: 6em;
     border-radius: 50%;
     position: fixed;
-    top: calc(var(--floatButtonY) + 0.5rem);
-    right: calc(var(--floatButtonX) + 0.5rem);
+    top: calc(var(--floatButtonY) + 0.5em);
+    right: calc(var(--floatButtonX) + 0.5em);
     background-color: $color-pink-2;
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
@@ -101,6 +105,7 @@
 
   & ul {
     @include centerItem;
+
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -109,29 +114,32 @@
     }
   }
   & li {
-    margin: 1rem;
+    margin: 1em;
   }
   & li {
-    font-size: 3rem;
+    font-size: var(--fontSize);
     font-weight: 300;
-    padding: 1rem 2rem;
-    color: $color-white;
+    padding: 0.4em 1em;
+    color: var(--fontColor);
     text-decoration: none;
+
     text-transform: uppercase;
     background-image: linear-gradient(
       120deg,
       var(--listHoverColor-1) 50%,
       var(--listHoverColor-2) 50%
     );
+
     background-size: 250%;
     transition: all 0.4s;
     display: inline-block;
     cursor: pointer;
+
     &:hover,
     &:active {
       background-position: 100%;
-      color: $color-pink-2;
-      transform: translateX(1rem);
+      color: var(--fontHoverColor);
+      transform: translateX(1em);
     }
   }
 

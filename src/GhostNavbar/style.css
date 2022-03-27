@@ -1,28 +1,34 @@
 .react-navbar-ghost-navigation {
-  font-family: inherit;
   position: relative;
-  font-size: 12.5px; }
+  font-size: 10px;
+  font-family: inherit; }
+  .react-navbar-ghost-navigation *,
+  .react-navbar-ghost-navigation *::after,
+  .react-navbar-ghost-navigation *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; }
   .react-navbar-ghost-navigation__checkbox {
     display: none; }
   .react-navbar-ghost-navigation__button {
     background-color: #fff;
-    width: 7rem;
-    height: 7rem;
+    width: 7em;
+    height: 7em;
     position: fixed;
     top: var(--floatButtonY);
     border-radius: 50%;
     right: var(--floatButtonX);
     z-index: 1001;
     text-align: center;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1em 3em rgba(0, 0, 0, 0.1);
     user-select: none;
     transform: scale(var(--my-css-var)); }
   .react-navbar-ghost-navigation__icon {
     position: relative;
-    margin-top: 3.5rem !important;
+    margin-top: 3.5em !important;
     cursor: pointer; }
     .react-navbar-ghost-navigation__icon, .react-navbar-ghost-navigation__icon::before, .react-navbar-ghost-navigation__icon::after {
-      width: 3rem;
+      width: 3em;
       height: 2px;
       background-color: #000;
       display: inline-block;
@@ -33,13 +39,13 @@
       position: absolute;
       left: 0; }
     .react-navbar-ghost-navigation__icon::before {
-      top: -0.8rem; }
+      top: -0.8em; }
     .react-navbar-ghost-navigation__icon::after {
-      top: 0.8rem; }
+      top: 0.8em; }
   .react-navbar-ghost-navigation__button:hover .react-navbar-ghost-navigation__icon::before {
-    top: -1rem; }
+    top: -1em; }
   .react-navbar-ghost-navigation__button:hover .react-navbar-ghost-navigation__icon::after {
-    top: 1rem; }
+    top: 1em; }
   .react-navbar-ghost-navigation__checkbox:checked + .react-navbar-ghost-navigation__button .react-navbar-ghost-navigation__icon::after {
     transform: rotate(-45deg);
     top: 0; }
@@ -49,12 +55,12 @@
   .react-navbar-ghost-navigation__checkbox:checked + .react-navbar-ghost-navigation__button .react-navbar-ghost-navigation__icon {
     background-color: transparent; }
   .react-navbar-ghost-navigation__background {
-    width: 6rem;
-    height: 6rem;
+    width: 6em;
+    height: 6em;
     border-radius: 50%;
     position: fixed;
-    top: calc(var(--floatButtonY) + 0.5rem);
-    right: calc(var(--floatButtonX) + 0.5rem);
+    top: calc(var(--floatButtonY) + 0.5em);
+    right: calc(var(--floatButtonX) + 0.5em);
     background-color: #ff4a81;
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
@@ -79,12 +85,12 @@
     .react-navbar-ghost-navigation ul a {
       text-decoration: none; }
   .react-navbar-ghost-navigation li {
-    margin: 1rem; }
+    margin: 1em; }
   .react-navbar-ghost-navigation li {
-    font-size: 3rem;
+    font-size: var(--fontSize);
     font-weight: 300;
-    padding: 1rem 2rem;
-    color: #fff;
+    padding: 0.4em 1em;
+    color: var(--fontColor);
     text-decoration: none;
     text-transform: uppercase;
     background-image: linear-gradient(120deg, var(--listHoverColor-1) 50%, var(--listHoverColor-2) 50%);
@@ -94,8 +100,8 @@
     cursor: pointer; }
     .react-navbar-ghost-navigation li:hover, .react-navbar-ghost-navigation li:active {
       background-position: 100%;
-      color: #ff4a81;
-      transform: translateX(1rem); }
+      color: var(--fontHoverColor);
+      transform: translateX(1em); }
   .react-navbar-ghost-navigation__checkbox:checked ~ .react-navbar-ghost-navigation__background {
     transform: scale(80); }
   .react-navbar-ghost-navigation__checkbox:checked ~ .react-navbar-ghost-navigation__nav {
