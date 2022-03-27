@@ -24,7 +24,8 @@
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "compile:sass": "node-sass src/**/sass/style.scss src/**/style.css -w"
+    "compile:sass": "node-sass src/**/sass/style.scss src/**/style.css -w",
+    "compile:all" :"sh ./sass-comile.sh"
   },
   "peerDependencies": {
     "react": ">=16"
