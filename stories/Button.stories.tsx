@@ -9,4 +9,4 @@ const meta: Meta = {
   
   export default meta
 
-  export const Default = ()=> <Button/>
+  export const Default = ()=> <Button styles={{navigationBackground:{backgroundColor: 'red'}}}/>

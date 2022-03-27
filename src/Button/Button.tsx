@@ -6,6 +6,7 @@ interface Styles {
   navigationButton?: Object;
   navigationIcon?: Object;
   navigationBackground?: Object;
+  floatButtonSize?: number;
 }
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -14,13 +15,18 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Button = (props: Props) => {
+
+  const {styles , children} = props
+
+  var cssVariables = { "--my-css-var": styles?.floatButtonSize ?? 1 } as React.CSSProperties;
+
   return (
-    <div className="navigation" {...props} style={props.styles?.navigation}>
+    <div className="navigation" {...props} style={styles?.navigation}>
       <input type="checkbox" className="navigation__checkbox" id="nav-toggle" />
       <label
         htmlFor="nav-toggle"
         className="navigation__button"
-        style={props.styles?.navigationButton}
+        style={{ ...styles?.navigationButton, ...cssVariables } }
       >
         <span
           className="navigation__icon"
@@ -30,7 +36,10 @@ export const Button = (props: Props) => {
       </label>
       <div
         className="navigation__background"
-        style={props.styles?.navigationBackground}
+        style={{
+          ...styles?.navigationBackground,
+          ...cssVariables
+        }}
       >
         &nbsp;
       </div>
