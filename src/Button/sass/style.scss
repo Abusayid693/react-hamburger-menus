@@ -1,7 +1,7 @@
 @import "./base.scss";
 
 .navigation {
-    
+
     font-family: inherit;
     position: relative;
 
@@ -20,6 +20,7 @@
       z-index: 1001;
       text-align: center;
       box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+      user-select: none;
     }
   
     &__icon {
@@ -97,16 +98,14 @@
       left: 0;
     }
   
-    &__list {
+    & ul {
       @include centerItem;
       list-style: none;
     }
-    &__item {
+    & li {
       margin: 1rem;
     }
-    &__link {
-      &:link,
-      &:visited {
+    & li {
         font-size: 3rem;
         font-weight: 300;
         padding: 1rem 2rem;
@@ -121,8 +120,7 @@
         background-size: 250%;
         transition: all 0.4s;
         display: inline-block;
-      }
-  
+        cursor: pointer;  
       &:hover,
       &:active {
         background-position: 100%;
