@@ -1,6 +1,7 @@
 .navigation {
   font-family: inherit;
-  position: relative; }
+  position: relative;
+  font-size: 12.5px; }
   .navigation__checkbox {
     display: none; }
   .navigation__button {
