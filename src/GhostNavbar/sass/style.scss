@@ -7,7 +7,7 @@
   position: relative;
   font-size: 10px;
   font-family: inherit;
-  
+
   &__checkbox {
     display: none;
   }
@@ -25,19 +25,24 @@
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
     user-select: none;
     transform: scale(var(--my-css-var));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__icon {
-    // @include centerItem;
+
     position: relative;
-    margin-top: 3.5em !important;
     cursor: pointer;
+    margin: 0 auto;
+  
     &,
     &::before,
     &::after {
       width: 3em;
       height: 2px;
-      background-color: $color-black;
+      background-color: var(--icon-color);
       display: inline-block;
       margin: 0;
       transition: top 0.3s;

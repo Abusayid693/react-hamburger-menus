@@ -1,9 +1,8 @@
 @import './base.scss';
 @import '../../preset.scss';
 
-.s-navigation {
+.react-navbar-ghost-button-navigation {
   @include preset;
-
 
   position: relative;
   user-select: none !important;
@@ -16,12 +15,12 @@
 
   &__button {
     background-color: $color-white;
-    width: 6em;
-    height: 6em;
+    width: calc(var(--floatButtonSize) * 1em);
+    height: calc(var(--floatButtonSize) * 1em);
     position: fixed;
-    top: 5vh;
+    top: calc(var(--floatButtonY) * 1vh);
     border-radius: 50%;
-    left: 3vw;
+    right: calc(var(--floatButtonX) * 1vw);
     z-index: 100;
     text-align: center;
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
@@ -43,7 +42,7 @@
     &::after {
       width: 2.6em;
       height: 2px;
-      background-color: $color-black;
+      background-color: var(--icon-color);
       display: inline-block;
       margin: 0;
       transition: top 0.3s;
@@ -105,6 +104,8 @@
       list-style: none;
       display: flex;
       flex-direction: column;
+      color: var(--fontColor);
+      font-size: var(--fontSize);
 
       & > * {
         font-size: 1.7em;
@@ -112,7 +113,7 @@
         padding: 9px 10%;
       }
       & li:hover {
-        background-color: rgba(aquamarine, 0.1) !important;
+        background-color: var(--fontHoverColor) !important;
       }
     }
 

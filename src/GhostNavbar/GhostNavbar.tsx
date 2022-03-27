@@ -6,33 +6,38 @@ interface Styles {
   navigationButton?: React.CSSProperties;
   navigationIcon?: React.CSSProperties;
   navigationBackground?: React.CSSProperties;
+
   floatButtonSize?: number;
   floatButtonX?: string;
   floatButtonY?: string;
   listHoverColor?: [string, string];
+  iconColor?: string;
+
   fontColor?: string;
   fontSize?: string;
   fontHoverColor?: string;
+
 }
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface GhostNavbarProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   styles?: Styles;
   className?: string;
 }
 
-export const GhostNavbar = (props: Props) => {
+export const GhostNavbar = (props: GhostNavbarProps) => {
   const { styles, children, className } = props;
 
   var cssVariables = {
     '--my-css-var': styles?.floatButtonSize ?? 1,
-    '--floatButtonX': styles?.floatButtonX ?? '85%',
+    '--floatButtonX': styles?.floatButtonX ?? '5%',
     '--floatButtonY': styles?.floatButtonY ?? '2%',
     '--listHoverColor-1': styles?.listHoverColor?.[0] ?? 'transparent',
     '--listHoverColor-2': styles?.listHoverColor?.[1] ?? '#fff',
     '--fontColor': styles?.fontColor ?? 'pink',
     '--fontSize': styles?.fontSize ?? '3em',
-    '--fontHoverColor': styles?.fontHoverColor ?? 'blue'
+    '--fontHoverColor': styles?.fontHoverColor ?? 'blue',
+    '--icon-color': styles?.iconColor ?? 'black'
   } as React.CSSProperties;
 
   return (
@@ -57,8 +62,7 @@ export const GhostNavbar = (props: Props) => {
         <span
           className="react-navbar-ghost-navigation__icon"
           style={styles?.navigationIcon}
-        ></span>
-        &nbsp;
+        >        &nbsp;</span>
       </label>
       <div
         className="react-navbar-ghost-navigation__background"
