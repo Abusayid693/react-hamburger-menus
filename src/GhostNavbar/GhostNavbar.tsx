@@ -17,7 +17,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   styles?: Styles;
 }
 
-export const Button = (props: Props) => {
+export const GhostNavbar = (props: Props) => {
   const { styles, children } = props;
 
   var cssVariables = {

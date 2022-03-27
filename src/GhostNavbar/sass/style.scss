@@ -6,7 +6,7 @@
   font-size: 12.5px;
   &__checkbox {
     display: none;
-  }
+  } 
 
   &__button {
     background-color: $color-white;
@@ -102,6 +102,8 @@
   & ul {
     @include centerItem;
     list-style: none;
+    display: flex;
+    flex-direction: column;
     & a {
       text-decoration: none;
     }

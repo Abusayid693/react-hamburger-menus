@@ -73,7 +73,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    list-style: none; }
+    list-style: none;
+    display: flex;
+    flex-direction: column; }
     .navigation ul a {
       text-decoration: none; }
   .navigation li {
