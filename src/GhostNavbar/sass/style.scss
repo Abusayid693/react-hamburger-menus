@@ -17,9 +17,9 @@
     width: 7em;
     height: 7em;
     position: fixed;
-    top: var(--gn-floatButtonY);
+    top: calc(var(--gn-floatButtonY) * 1vh);
     border-radius: 50%;
-    right: var(--gn-floatButtonX);
+    right: calc(var(--gn-floatButtonX) * 1vw);
     z-index: 1001;
     text-align: center;
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
@@ -88,8 +88,8 @@
     height: 6em;
     border-radius: 50%;
     position: fixed;
-    top: calc(var(--gn-floatButtonY) + 0.5em);
-    right: calc(var(--gn-floatButtonX) + 0.5em);
+    top: calc(var(--gn-floatButtonY)  * 1vh + .5em);
+    right: calc(var(--gn-floatButtonX) * 1vw + .5em);
     background-color: $color-pink-2;
     z-index: 1000;
     transition: transform 0.8s timing_function_1();

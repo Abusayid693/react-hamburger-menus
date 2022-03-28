@@ -8,8 +8,8 @@ interface Styles {
   navigationBackground?: React.CSSProperties;
 
   floatButtonSize?: number;
-  floatButtonX?: string;
-  floatButtonY?: string;
+  floatButtonX?: number;
+  floatButtonY?: number;
   listHoverColor?: [string, string];
   iconColor?: string;
 
@@ -30,8 +30,8 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
 
   var cssVariables = {
     '--gn-floatButtonSize': styles?.floatButtonSize ?? 1,
-    '--gn-floatButtonX': styles?.floatButtonX ?? '5%',
-    '--gn-floatButtonY': styles?.floatButtonY ?? '2%',
+    '--gn-floatButtonX': styles?.floatButtonX ?? 5,
+    '--gn-floatButtonY': styles?.floatButtonY ?? 2,
     '--gn-listHoverColor-1': styles?.listHoverColor?.[0] ?? 'transparent',
     '--gn-listHoverColor-2': styles?.listHoverColor?.[1] ?? '#fff',
     '--gn-fontColor': styles?.fontColor ?? 'pink',
