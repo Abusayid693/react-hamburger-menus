@@ -2,7 +2,7 @@
   "name": "react-animated-navbars",
   "npmName": "react-animated-navbars",
   "description": "A react library for creating animated navigation panels.",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -61,6 +61,7 @@
     "@storybook/addon-links": "^6.4.19",
     "@storybook/addons": "^6.4.19",
     "@storybook/react": "^6.4.19",
+    "@testing-library/react": "^12.1.4",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "babel-loader": "^8.2.4",
@@ -68,6 +69,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
@@ -80,5 +82,19 @@
     "@babel/eslint-parser": "^7.17.0",
     "node-sass": "^7.0.1",
     "sass": "^1.49.9"
-  }
+  },
+  "keywords":[
+    "react navigation",
+    "react navbar",
+    "react animated navbar",
+    "react sidebar",
+    "react designer navbar",
+    "sidebar widget",
+    "sidebar ui",
+    "sidebar components",
+    "sass",
+    "Typescript",
+    "react navbars",
+    "react navbar components"
+  ]
 }
