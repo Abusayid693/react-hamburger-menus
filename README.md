@@ -11,7 +11,9 @@
 Congrats! You just saved yourself hours of work by using react-animated-navbars library for creating animated navigation panels
 
 ## Demo
-[Take a look at the live demo!](https://victorcazanave.github.io/react-svg-map/)
+[Take a look at the live demo!](https://codesandbox.io/s/react-animated-navbars-9svje8?file=/src/App.js:0-821)
+
+<img src="https://i.imgur.com/X19NnPi.png"/>
 
 ## Installation
 ### npm
@@ -32,20 +34,31 @@ Congrats! You just saved yourself hours of work by using react-animated-navbars 
 
 ```javascript
 import React from "react";
-import GhostNavbar from "react-animated-navbars";
+import { GhostNavbar } from "react-animated-navbars";
 import "react-animated-navbars/dist/react-animated-navbars.cjs.development.css";
 
-const App = ()=>{
-  <GhostNavbar>
-   <ul>
-    <li>ABOUT</li>
-    <li>PROJECTS</li>
-    <li>ELEMENTS</li>
-    <li>CONTACT</li>
-   </ul>
-  </GhostNavbar>
-}
+const App = () => {
+  return (
+    <>
+      <GhostNavbar
+        styles={{
+          floatButtonSize: 0.9,
+          floatButtonX: 6,
+          floatButtonY: 4
+        }}
+      >
+        <ul>
+          <li>ABOUT</li>
+          <li>PROJECTS</li>
+          <li>ELEMENTS</li>
+          <li>CONTACT</li>
+        </ul>
+      </GhostNavbar>
+    </>
+  );
+};
 
+export default App;
 ```
 ### API 
 
@@ -66,6 +79,59 @@ const App = ()=>{
 | navigationIcon                 | React CSS Properties           | **optional**          | Ghost icon styling       |
 | navigationBackground                 | React CSS Properties           | **optional**          | Panel background styling      |
 | floatButtonSize                 | number          | **optional**          | Ghost button size (just number)      |
-| floatButtonX                 | string          | `85%`      | Ghost button X position from right      |
-| floatButtonY                 | string          | `2%`        | Ghost button Y position from top      |
+| floatButtonX                 | number          | `85`      | Ghost button X position from right      |
+| floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
 | listHoverColor                 | [string, string]          | `[color 1, color 2]`       | Hover animation color     |
+| font- Color, Size, HoverColor                 | **optional**         | string      |  common text styling     |
+
+### Ghost Button
+
+```javascript
+import React from "react";
+import { GhostButton } from "react-animated-navbars";
+import "react-animated-navbars/dist/react-animated-navbars.cjs.development.css";
+
+const App = () => {
+  return (
+    <>
+      <GhostButton
+        styles={{
+          floatButtonX: 85,
+          floatButtonY: 7
+        }}
+      >
+          <ul>
+          <li>ABOUT</li>
+          <li>PROJECTS</li>
+          <li>ELEMENTS</li>
+          <li>CONTACT</li>
+        </ul>
+        </GhostButton>
+    </>
+  );
+};
+
+export default App;
+```
+### API 
+
+#### Props
+
+| Prop                | Type             | Default               | Description                                                                                                      |
+| ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| children                 | ReactNode `(ul > li)`        | **optional**          | Navbar items    |
+| className                 | string      | **optional**          | Base class    |
+| styles                 | styles object      | **optional**          | Base styles    |
+
+#### STYLES
+
+| Property                | Type             | Default               | Description                                                                                                      |
+| ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| navigation                 | React CSS Properties           | **optional**          | Base styling       |
+| navigationButton                 | React CSS Properties           | **optional**          | Ghost button styling       |
+| navigationIcon                 | React CSS Properties           | **optional**          | Ghost icon styling       |
+| navigationCard                 | React CSS Properties           | **optional**          | Panel pop-up card styling      |
+| floatButtonSize                 | number          | **optional**          | Ghost button size (just number)      |
+| floatButtonX                 | number          | `85`      | Ghost button X position from right      |
+| floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
+| font- Color, Size, HoverColor                 | **optional**         | string      |  common text styling     |
