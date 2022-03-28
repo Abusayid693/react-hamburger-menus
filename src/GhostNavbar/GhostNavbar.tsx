@@ -29,15 +29,15 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
   const { styles, children, className } = props;
 
   var cssVariables = {
-    '--my-css-var': styles?.floatButtonSize ?? 1,
-    '--floatButtonX': styles?.floatButtonX ?? '5%',
-    '--floatButtonY': styles?.floatButtonY ?? '2%',
-    '--listHoverColor-1': styles?.listHoverColor?.[0] ?? 'transparent',
-    '--listHoverColor-2': styles?.listHoverColor?.[1] ?? '#fff',
-    '--fontColor': styles?.fontColor ?? 'pink',
-    '--fontSize': styles?.fontSize ?? '3em',
-    '--fontHoverColor': styles?.fontHoverColor ?? 'blue',
-    '--icon-color': styles?.iconColor ?? 'black'
+    '--gn-floatButtonSize': styles?.floatButtonSize ?? 1,
+    '--gn-floatButtonX': styles?.floatButtonX ?? '5%',
+    '--gn-floatButtonY': styles?.floatButtonY ?? '2%',
+    '--gn-listHoverColor-1': styles?.listHoverColor?.[0] ?? 'transparent',
+    '--gn-listHoverColor-2': styles?.listHoverColor?.[1] ?? '#fff',
+    '--gn-fontColor': styles?.fontColor ?? 'pink',
+    '--gn-fontSize': styles?.fontSize ?? '3em',
+    '--gn-fontHoverColor': styles?.fontHoverColor ?? 'blue',
+    '--gn-icon-color': styles?.iconColor ?? 'black'
   } as React.CSSProperties;
 
   return (

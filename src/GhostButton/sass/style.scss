@@ -15,12 +15,12 @@
 
   &__button {
     background-color: $color-white;
-    width: calc(var(--floatButtonSize) * 1em);
-    height: calc(var(--floatButtonSize) * 1em);
+    width: calc(var(--gb-floatButtonSize) * 1em);
+    height: calc(var(--gb-floatButtonSize) * 1em);
     position: fixed;
-    top: calc(var(--floatButtonY) * 1vh);
+    top: calc(var(--gb-floatButtonY) * 1vh);
     border-radius: 50%;
-    right: calc(var(--floatButtonX) * 1vw);
+    right: calc(var(--gb-floatButtonX) * 1vw);
     z-index: 100;
     text-align: center;
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
@@ -42,7 +42,7 @@
     &::after {
       width: 2.6em;
       height: 2px;
-      background-color: var(--icon-color);
+      background-color: var(--gb-icon-color);
       display: inline-block;
       margin: 0;
       transition: top 0.3s;
@@ -92,20 +92,22 @@
     top: 7.5em;
     background-color: $color-white;
     z-index: 1000;
-    transition: all 0.2s cubic-bezier(0.2, 0.94, 0.66, 1.21);
+    transition: all 0.2s timing_function();
 
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
     opacity: 0;
     transform: scale(0.7);
     padding: 5% 0;
 
+    pointer-events: none;
+
     & ul {
       text-decoration: none;
       list-style: none;
       display: flex;
       flex-direction: column;
-      color: var(--fontColor);
-      font-size: var(--fontSize);
+      color: var(--gb-fontColor);
+      font-size: var(--gb-fontSize);
 
       & > * {
         font-size: 1.7em;
@@ -113,7 +115,7 @@
         padding: 9px 10%;
       }
       & li:hover {
-        background-color: var(--fontHoverColor) !important;
+        background-color: var(--gb-fontHoverColor) !important;
       }
     }
 
@@ -134,5 +136,6 @@
   &__checkbox:checked + &__button > &__background {
     opacity: 1;
     transform: scale(1);
+    pointer-events: all;
   }
 }

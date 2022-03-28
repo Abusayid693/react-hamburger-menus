@@ -1,12 +1,14 @@
-import React, { HTMLAttributes, ReactNode } from 'react';
+import React, { HTMLAttributes, ReactNode, useRef, useState } from 'react';
+import { HandleOutsideClick } from "./hook";
 import './style.css';
 
 interface Styles {
+  // Base styles
   navigation?: React.CSSProperties;
   navigationButton?: React.CSSProperties;
   navigationIcon?: React.CSSProperties;
   navigationCard?: React.CSSProperties;
-
+  // Style variables
   floatButtonSize?: string;
   floatButtonX?: number;
   floatButtonY?: number;
@@ -24,18 +26,25 @@ export interface GhostButtonProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const GhostButton = (props: GhostButtonProps) => {
+  
   const { children, styles, className } = props;
 
+  const [checked, setChecked] = useState(false);
+  const ref= useRef(null);
+  
+  HandleOutsideClick(ref, setChecked)
+
   var cssVariables = {
-    '--floatButtonSize': styles?.floatButtonSize ?? 6,
-    '--floatButtonX': styles?.floatButtonX ?? 90,
-    '--floatButtonY': styles?.floatButtonY ?? 2,
-    '--fontColor': styles?.fontColor ?? 'black',
-    '--fontSize': styles?.fontSize ?? '1em',
-    '--fontHoverColor': styles?.fontHoverColor ?? 'rgba(127, 255, 212, 0.157)',
-    '--icon-color': styles?.iconColor ?? 'black'
+    '--gb-floatButtonSize': styles?.floatButtonSize ?? 6,
+    '--gb-floatButtonX': styles?.floatButtonX ?? 90,
+    '--gb-floatButtonY': styles?.floatButtonY ?? 2,
+    '--gb-fontColor': styles?.fontColor ?? 'black',
+    '--gb-fontSize': styles?.fontSize ?? '1em',
+    '--gb-fontHoverColor': styles?.fontHoverColor ?? 'rgba(127, 255, 212, 0.157)',
+    '--gb-icon-color': styles?.iconColor ?? 'black'
   } as React.CSSProperties;
 
+  // It tracks how to style the list based on page position
   let listPosition = 'left';
 
   if (styles?.floatButtonX && styles?.floatButtonX < 50)
@@ -48,11 +57,14 @@ export const GhostButton = (props: GhostButtonProps) => {
         ...styles?.navigation,
         ...cssVariables,
       }}
+      ref={ref}
     >
       <input
         type="checkbox"
         className="react-navbar-ghost-button-navigation__checkbox"
         id="react-navbar-ghost-button-nav-toggle"
+        checked = {checked}
+        onChange = {() => setChecked(!checked)}
       />
       <label
         htmlFor="react-navbar-ghost-button-nav-toggle"

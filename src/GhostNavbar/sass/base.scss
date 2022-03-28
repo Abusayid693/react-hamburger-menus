@@ -4,17 +4,24 @@ $color-primary-light: #55c57a;
 $color-primary-dark: #28b485;
 $color-grey-dark: #777;
 $color-black: #000;
-$color-white: #fff; 
+$color-white: #fff;
 $color-pink: rgb(241, 107, 147);
 $color-pink-2: rgb(255, 74, 129);
-$color-grey-light-1:  #f7f7f7;
+$color-grey-light-1: #f7f7f7;
 $color-grey-light-2: rgb(235, 235, 235);
 $default-font-size: 1.6rem;
 
-// MIXIN
 @mixin centerItem {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@function timing_function_1() {
+  @return cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+@function timing_function_2() {
+  @return cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
