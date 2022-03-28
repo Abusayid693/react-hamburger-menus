@@ -2,7 +2,7 @@
   "name": "react-animated-navbars",
   "npmName": "react-animated-navbars",
   "description": "A react library for creating animated navigation panels.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
