@@ -10,5 +10,18 @@ const meta: Meta = {
 export default meta;
 
 export const Default = () => (
-  <GhostNavbar styles={{ navigation: { fontFamily: 'font-family: "Lato", sans-serif;', fontWeight:'300' } }} />
+  <GhostNavbar
+    styles={{
+      navigation: {
+        fontFamily: 'font-family: "Lato", sans-serif;',
+        fontWeight: '300',
+      },
+      iconWidth: '30px',
+      fontColor: '#fff',
+      navigationButton: {
+        borderRadius: '5px',
+        width: '50px',
+      },
+    }}
+  />
 );

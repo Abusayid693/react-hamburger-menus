@@ -17,17 +17,20 @@ interface Styles {
   fontHoverColor?: string;
 
   iconColor?:string
+  iconWidth?: string;
+  iconHeight?: string;
 }
 
 export interface GhostButtonProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   styles?: Styles;
   className?: string;
+  id?: string;
 }
 
 export const GhostButton = (props: GhostButtonProps) => {
   
-  const { children, styles, className } = props;
+  const { children, styles, className ,id} = props;
 
   const [checked, setChecked] = useState(false);
   const ref= useRef(null);
@@ -41,11 +44,16 @@ export const GhostButton = (props: GhostButtonProps) => {
     '--gb-fontColor': styles?.fontColor ?? 'black',
     '--gb-fontSize': styles?.fontSize ?? '1em',
     '--gb-fontHoverColor': styles?.fontHoverColor ?? 'rgba(127, 255, 212, 0.157)',
-    '--gb-icon-color': styles?.iconColor ?? 'black'
+    '--gb-icon-color': styles?.iconColor ?? 'black',
+    '--gb-icon-width': styles?.iconWidth ?? '2.6em',
+    '--gb-icon-height': styles?.iconHeight ?? '2px'
   } as React.CSSProperties;
 
   // It tracks how to style the list based on page position
+  const uniqueId = id ?? Math.floor(Math.random() * 30000000)
   let listPosition = 'left';
+
+
 
   if (styles?.floatButtonX && styles?.floatButtonX < 50)
     listPosition = 'right';
@@ -62,12 +70,12 @@ export const GhostButton = (props: GhostButtonProps) => {
       <input
         type="checkbox"
         className="react-navbar-ghost-button-navigation__checkbox"
-        id="react-navbar-ghost-button-nav-toggle"
+        id={`react-navbar-ghost-button-nav-toggle-${uniqueId}`}
         checked = {checked}
         onChange = {() => setChecked(!checked)}
       />
       <label
-        htmlFor="react-navbar-ghost-button-nav-toggle"
+        htmlFor={`react-navbar-ghost-button-nav-toggle-${uniqueId}`}
         className="react-navbar-ghost-button-navigation__button"
         style={{
           ...styles?.navigationButton,

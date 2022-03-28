@@ -40,8 +40,8 @@
     &,
     &::before,
     &::after {
-      width: 2.6em;
-      height: 2px;
+      width: var(--gb-icon-width);
+      height: var(--gb-icon-height);
       background-color: var(--gb-icon-color);
       display: inline-block;
       margin: 0;

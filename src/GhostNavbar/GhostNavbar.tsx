@@ -7,11 +7,13 @@ interface Styles {
   navigationIcon?: React.CSSProperties;
   navigationBackground?: React.CSSProperties;
 
-  floatButtonSize?: number;
   floatButtonX?: number;
   floatButtonY?: number;
   listHoverColor?: [string, string];
+  
   iconColor?: string;
+  iconWidth?: string;
+  iconHeight?: string;
 
   fontColor?: string;
   fontSize?: string;
@@ -23,13 +25,13 @@ export interface GhostNavbarProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   styles?: Styles;
   className?: string;
+  id?: string;
 }
 
 export const GhostNavbar = (props: GhostNavbarProps) => {
-  const { styles, children, className } = props;
+  const { styles, children, className, id } = props;
 
   var cssVariables = {
-    '--gn-floatButtonSize': styles?.floatButtonSize ?? 1,
     '--gn-floatButtonX': styles?.floatButtonX ?? 5,
     '--gn-floatButtonY': styles?.floatButtonY ?? 2,
     '--gn-listHoverColor-1': styles?.listHoverColor?.[0] ?? 'transparent',
@@ -37,8 +39,14 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
     '--gn-fontColor': styles?.fontColor ?? 'pink',
     '--gn-fontSize': styles?.fontSize ?? '3em',
     '--gn-fontHoverColor': styles?.fontHoverColor ?? 'blue',
-    '--gn-icon-color': styles?.iconColor ?? 'black'
+    '--gn-icon-color': styles?.iconColor ?? 'black',
+    '--gn-icon-width': styles?.iconWidth ?? '2.6em',
+    '--gn-icon-height': styles?.iconHeight ?? '2px',
   } as React.CSSProperties;
+
+  const uniqueId = id ?? Math.floor(Math.random() * 30000000)
+  const floatButtonWidth = styles?.navigationButton?.width ?? '6em';
+  const floatButtonHeight = styles?.navigationButton?.height ?? '6em';
 
   return (
     <div
@@ -52,12 +60,13 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
       <input
         type="checkbox"
         className="react-navbar-ghost-navigation__checkbox"
-        id="nav-toggle"
+        id={`react-navbar-ghost-navigation-toggle-${uniqueId}`}
       />
       <label
-        htmlFor="nav-toggle"
+        htmlFor={`react-navbar-ghost-navigation-toggle-${uniqueId}`}
         className="react-navbar-ghost-navigation__button"
-        style={styles?.navigationButton}
+        // style={styles?.navigationButton}
+        style={{...styles?.navigationButton, width: floatButtonWidth, height: floatButtonHeight}}
       >
         <span
           className="react-navbar-ghost-navigation__icon"
@@ -66,7 +75,7 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
       </label>
       <div
         className="react-navbar-ghost-navigation__background"
-        style={styles?.navigationBackground}
+        style={{...styles?.navigationBackground, width: floatButtonWidth, height: floatButtonHeight}}
       >
         &nbsp;
       </div>

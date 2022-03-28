@@ -13,7 +13,7 @@ Congrats! You just saved yourself hours of work by using react-animated-navbars 
 ## Demo
 [Take a look at the live demo!](https://codesandbox.io/s/react-animated-navbars-9svje8?file=/src/App.js:0-821)
 
-<img src="https://i.imgur.com/X19NnPi.png"/>
+<img src="https://i.imgur.com/9yXKTAx.png"/>
 
 ## Installation
 ### npm
@@ -78,7 +78,7 @@ export default App;
 | navigationButton                 | React CSS Properties           | **optional**          | Ghost button styling       |
 | navigationIcon                 | React CSS Properties           | **optional**          | Ghost icon styling       |
 | navigationBackground                 | React CSS Properties           | **optional**          | Panel background styling      |
-| floatButtonSize                 | number          | **optional**          | Ghost button size (just number)      |
+| iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
 | floatButtonX                 | number          | `85`      | Ghost button X position from right      |
 | floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
 | listHoverColor                 | [string, string]          | `[color 1, color 2]`       | Hover animation color     |
@@ -135,3 +135,4 @@ export default App;
 | floatButtonX                 | number          | `85`      | Ghost button X position from right      |
 | floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
 | font- Color, Size, HoverColor                 | **optional**         | string      |  common text styling     |
+| iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
