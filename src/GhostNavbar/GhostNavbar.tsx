@@ -10,7 +10,7 @@ interface Styles {
   floatButtonX?: number;
   floatButtonY?: number;
   listHoverColor?: [string, string];
-  
+
   iconColor?: string;
   iconWidth?: string;
   iconHeight?: string;
@@ -18,7 +18,6 @@ interface Styles {
   fontColor?: string;
   fontSize?: string;
   fontHoverColor?: string;
-
 }
 
 export interface GhostNavbarProps extends HTMLAttributes<HTMLDivElement> {
@@ -26,10 +25,15 @@ export interface GhostNavbarProps extends HTMLAttributes<HTMLDivElement> {
   styles?: Styles;
   className?: string;
   id?: string;
+
+  leftReveal?: boolean;
+  rightReveal?: boolean;
+  backgroundBox?: boolean;
+  backgroundCircle?: boolean;
 }
 
 export const GhostNavbar = (props: GhostNavbarProps) => {
-  const { styles, children, className, id } = props;
+  const { styles, children, className, id, rightReveal, backgroundBox } = props;
 
   var cssVariables = {
     '--gn-floatButtonX': styles?.floatButtonX ?? 5,
@@ -44,43 +48,60 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
     '--gn-icon-height': styles?.iconHeight ?? '2px',
   } as React.CSSProperties;
 
-  const uniqueId = id ?? Math.floor(Math.random() * 30000000)
+  const uniqueId = id ?? Math.floor(Math.random() * 30000000);
   const floatButtonWidth = styles?.navigationButton?.width ?? '6em';
   const floatButtonHeight = styles?.navigationButton?.height ?? '6em';
+  const classId = 'react-hamburger-menus-navbar-ghost';
+  
+  const revealType = rightReveal ? 'right-screen' : 'left-screen';
+  const backgroundType = backgroundBox ? 'square-box' : 'circle-box';
 
   return (
     <div
-      className={`react-navbar-ghost-navigation ${className}`}
+      className={`${classId}-navigation ${className}`}
       {...props}
       style={{
         ...styles?.navigation,
         ...cssVariables,
       }}
-      data-testid = {'GhostNavbar'}
+      data-testid={'GhostNavbar'}
     >
       <input
         type="checkbox"
-        className="react-navbar-ghost-navigation__checkbox"
-        id={`react-navbar-ghost-navigation-toggle-${uniqueId}`}
+        className={`${classId}-navigation__checkbox`}
+        id={`${classId}-navigation-toggle-${uniqueId}`}
       />
       <label
-        htmlFor={`react-navbar-ghost-navigation-toggle-${uniqueId}`}
-        className="react-navbar-ghost-navigation__button"
+        htmlFor={`${classId}-navigation-toggle-${uniqueId}`}
+        className={`${classId}-navigation__button`}
         // style={styles?.navigationButton}
-        style={{...styles?.navigationButton, width: floatButtonWidth, height: floatButtonHeight}}
+        style={{
+          ...styles?.navigationButton,
+          width: floatButtonWidth,
+          height: floatButtonHeight,
+        }}
       >
         <span
-          className="react-navbar-ghost-navigation__icon"
+          className={`${classId}-navigation__icon`}
           style={styles?.navigationIcon}
-        >        &nbsp;</span>
+        >
+          {' '}
+          &nbsp;
+        </span>
       </label>
       <div
-        className="react-navbar-ghost-navigation__background"
-        style={{...styles?.navigationBackground, width: floatButtonWidth, height: floatButtonHeight}}
+        className={`${classId}-navigation__background ${classId}-navigation__background--${backgroundType}`}
+        style={{
+          ...styles?.navigationBackground,
+          width: floatButtonWidth,
+          height: floatButtonHeight,
+        }}
       >
         &nbsp;
       </div>
-      <nav className="react-navbar-ghost-navigation__nav">
+      <nav
+        className={`${classId}-navigation__nav ${classId}-navigation__nav--${revealType}`}
+      >
         {children ? (
           children
         ) : (

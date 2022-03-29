@@ -1,0 +1,23 @@
+@mixin LEFT_SCREEN_ANIMATION {
+  &__nav--left-screen {
+    left: 0;
+  }
+}
+
+@mixin RIGHT_SCREEN_ANIMATION {
+  &__nav--right-screen {
+    right: 0;
+  }
+}
+
+@mixin SQUARE_BOX_ANIMATION {
+  &__background--square-box {
+    border-radius: 0;
+  }
+}
+
+@mixin CIRCLE_BOX_ANIMATION {
+  &__background--circle-box {
+    border-radius: 50%;
+  }
+}

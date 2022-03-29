@@ -1,12 +1,12 @@
 {
   "name": "react-hamburger-menus",
-  "npmName": "react-animated-navbars",
-  "description": "A react library for creating animated navigation panels.",
-  "version": "1.0.0",
+  "npmName": "react-hamburger-menus",
+  "description": "A react library for creating animated hamburger menu with CSS transitions.",
+  "version": "1.0.4",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "repository": "https://github.com/Abusayid693/react-animated-navbars",
+  "repository": "https://github.com/Abusayid693/react-hamburger-menus",
   "files": [
     "dist",
     "src"

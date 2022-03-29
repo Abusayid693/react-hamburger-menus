@@ -1,7 +1,7 @@
 @import './base.scss';
 @import '../../preset.scss';
 
-.react-navbar-ghost-button-navigation {
+.react-hamburger-menus-ghost-button-navigation {
   @include preset;
 
   position: relative;
@@ -115,7 +115,7 @@
         padding: 9px 10%;
       }
       & li:hover {
-        background-color: var(--gb-fontHoverColor) !important;
+        background-color: var(--gb-listHoverColor) !important;
       }
     }
 
@@ -128,7 +128,7 @@
     &--right {
       right: 0;
       & ul {
-        text-align: right !important;
+        text-align: left !important;
       }
     }
   }

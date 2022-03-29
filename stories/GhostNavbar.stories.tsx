@@ -11,6 +11,8 @@ export default meta;
 
 export const Default = () => (
   <GhostNavbar
+    rightReveal
+    backgroundBox
     styles={{
       navigation: {
         fontFamily: 'font-family: "Lato", sans-serif;',
@@ -19,8 +21,6 @@ export const Default = () => (
       iconWidth: '30px',
       fontColor: '#fff',
       navigationButton: {
-        borderRadius: '5px',
-        width: '50px',
       },
     }}
   />

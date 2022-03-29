@@ -1,4 +1,4 @@
-# react-animated-navbars
+# react-hamburger-menus
 
 <div>
   <img src="https://img.shields.io/npm/v/react-animated-navbars">
@@ -11,18 +11,18 @@
 Congrats! You just saved yourself hours of work by using react-animated-navbars library for creating animated navigation panels
 
 ## Demo
-[Take a look at the live demo!](https://codesandbox.io/s/react-animated-navbars-9svje8?file=/src/App.js:0-821)
+[Take a look at the live demo!](https://codesandbox.io/s/react-hamburger-menu-9svje8?file=/src/App.js)
 
-<img src="https://i.imgur.com/9yXKTAx.png"/>
+<img src="https://i.imgur.com/GUX4Thb.png"/>
 
 ## Installation
 ### npm
 
-`npm i react-animated-navbars`
+`npm i react-hamburger-menus`
 
 ### yarn
 
-`yarn add react-animated-navbars`
+`yarn add react-hamburger-menus`
 
 ## Usage
 
@@ -34,8 +34,8 @@ Congrats! You just saved yourself hours of work by using react-animated-navbars 
 
 ```javascript
 import React from "react";
-import { GhostNavbar } from "react-animated-navbars";
-import "react-animated-navbars/dist/react-animated-navbars.cjs.development.css";
+import { GhostNavbar } from "react-hamburger-menus";
+import "react-hamburger-menus/dist/react-hamburger-menus.cjs.development.css";
 
 const App = () => {
   return (
@@ -88,8 +88,8 @@ export default App;
 
 ```javascript
 import React from "react";
-import { GhostButton } from "react-animated-navbars";
-import "react-animated-navbars/dist/react-animated-navbars.cjs.development.css";
+import { GhostButton } from "react-hamburger-menus";
+import "react-hamburger-menus/dist/react-hamburger-menus.cjs.development.css";
 
 const App = () => {
   return (
@@ -134,5 +134,7 @@ export default App;
 | floatButtonSize                 | number          | **optional**          | Ghost button size (just number)      |
 | floatButtonX                 | number          | `85`      | Ghost button X position from right      |
 | floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
-| font- Color, Size, HoverColor                 | **optional**         | string      |  common text styling     |
+| font- Color, Size                 | **optional**         | string      |  common text styling     |
 | iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
+| listHoverColor                 | string         | `aqua`       | Hover animation color     |
+| leftReveal, rightReveal, backgroundBox, backgroundCircle                 | string         | `leftReveal backgroundCircle`       | annimation     |

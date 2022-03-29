@@ -14,7 +14,7 @@ interface Styles {
   floatButtonY?: number;
   fontColor?: string;
   fontSize?: string;
-  fontHoverColor?: string;
+  listHoverColor?: string;
 
   iconColor?:string
   iconWidth?: string;
@@ -43,7 +43,7 @@ export const GhostButton = (props: GhostButtonProps) => {
     '--gb-floatButtonY': styles?.floatButtonY ?? 2,
     '--gb-fontColor': styles?.fontColor ?? 'black',
     '--gb-fontSize': styles?.fontSize ?? '1em',
-    '--gb-fontHoverColor': styles?.fontHoverColor ?? 'rgba(127, 255, 212, 0.157)',
+    '--gb-listHoverColor': styles?.listHoverColor ?? 'rgba(127, 255, 212, 0.157)',
     '--gb-icon-color': styles?.iconColor ?? 'black',
     '--gb-icon-width': styles?.iconWidth ?? '2.6em',
     '--gb-icon-height': styles?.iconHeight ?? '2px'
@@ -51,16 +51,15 @@ export const GhostButton = (props: GhostButtonProps) => {
 
   // It tracks how to style the list based on page position
   const uniqueId = id ?? Math.floor(Math.random() * 30000000)
+  const classId = 'react-hamburger-menus-ghost-button';
+
   let listPosition = 'left';
-
-
-
   if (styles?.floatButtonX && styles?.floatButtonX < 50)
     listPosition = 'right';
 
   return (
     <div
-      className={`react-navbar-ghost-button-navigation ${className}`}
+      className={`${classId}-navigation ${className}`}
       style={{
         ...styles?.navigation,
         ...cssVariables,
@@ -70,20 +69,20 @@ export const GhostButton = (props: GhostButtonProps) => {
     >
       <input
         type="checkbox"
-        className="react-navbar-ghost-button-navigation__checkbox"
-        id={`react-navbar-ghost-button-nav-toggle-${uniqueId}`}
+        className={`${classId}-navigation__checkbox`}
+        id={`${classId}-nav-toggle-${uniqueId}`}
         checked = {checked}
         onChange = {() => setChecked(!checked)}
       />
       <label
-        htmlFor={`react-navbar-ghost-button-nav-toggle-${uniqueId}`}
-        className="react-navbar-ghost-button-navigation__button"
+        htmlFor={`${classId}-nav-toggle-${uniqueId}`}
+        className={`${classId}-navigation__button`}
         style={{
           ...styles?.navigationButton,
         }}
       >
         <span
-          className="react-navbar-ghost-button-navigation__icon"
+          className={`${classId}-navigation__icon`}
           style={{
             ...styles?.navigationIcon,
           }}
@@ -92,8 +91,8 @@ export const GhostButton = (props: GhostButtonProps) => {
         </span>
         <div
           className={`
-          react-navbar-ghost-button-navigation__background 
-          react-navbar-ghost-button-navigation__background--${listPosition}
+          ${classId}-navigation__background 
+          ${classId}-navigation__background--${listPosition}
           
           `}
           style={{

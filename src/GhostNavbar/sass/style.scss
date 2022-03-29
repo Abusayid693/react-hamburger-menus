@@ -1,7 +1,8 @@
 @import './base.scss';
 @import '../../preset.scss';
+@import "./animations.scss";
 
-.react-navbar-ghost-navigation {
+.react-hamburger-menus-navbar-ghost-navigation {
   @include preset;
 
   position: relative;
@@ -85,14 +86,13 @@
   &__background {
     width: 6em;
     height: 6em;
-    border-radius: 50%;
     position: fixed;
     top: calc(var(--gn-floatButtonY)  * 1vh);
     right: calc(var(--gn-floatButtonX) * 1vw);
     background-color: $color-pink-2;
     z-index: 1000;
     transition: transform 0.8s timing_function_1();
-    transform: scale(0.8);
+    transform: scale(0.5);
   }
 
   &__nav {
@@ -103,7 +103,7 @@
     width: 0;
     transition: all 0.8s timing_function_2();
     top: 0;
-    left: 0;
+
   }
 
   & ul {
@@ -150,10 +150,14 @@
   }
 
   &__checkbox:checked ~ &__background {
-    transform: scale(80);
+    transform: scale(100);
   }
   &__checkbox:checked ~ &__nav {
     width: 100%;
     opacity: 1;
   }
+
+  @include LEFT_SCREEN_ANIMATION();
+  @include RIGHT_SCREEN_ANIMATION();
+  @include CIRCLE_BOX_ANIMATION();
 }

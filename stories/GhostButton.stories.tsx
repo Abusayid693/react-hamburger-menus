@@ -14,6 +14,7 @@ export const Default = () => (
     styles={{
       navigation: { fontFamily: 'Arial, Helvetica, sans-serif' },
       fontColor: 'grey',
+      floatButtonX: 10
     }}
   />
 );
