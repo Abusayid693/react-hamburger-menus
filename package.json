@@ -1,8 +1,8 @@
 {
-  "name": "react-animated-navbars",
+  "name": "react-hamburger-menus",
   "npmName": "react-animated-navbars",
   "description": "A react library for creating animated navigation panels.",
-  "version": "1.0.10",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -92,17 +92,11 @@
     }
   },
   "keywords": [
-    "react navigation",
-    "react navbar",
-    "react animated navbar",
-    "react sidebar",
-    "react designer navbar",
-    "sidebar widget",
-    "sidebar ui",
-    "sidebar components",
-    "sass",
-    "Typescript",
-    "react navbars",
-    "react navbar components"
+    "component",
+    "hamburger",
+    "menu",
+    "react",
+    "react-component",
+    "react-menu"
   ]
 }
