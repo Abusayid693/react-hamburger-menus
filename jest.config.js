@@ -1,0 +1,1 @@
+module.exports={verbose:!0,setupFilesAfterEnv:["./setupTests.ts"]};

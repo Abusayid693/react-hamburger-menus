@@ -1,6 +1,7 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "include": ["src", "types"],
+  "types": ["node", "jest", "@testing-library/jest-dom"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],

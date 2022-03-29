@@ -61,9 +61,11 @@
     "@storybook/addon-links": "^6.4.19",
     "@storybook/addons": "^6.4.19",
     "@storybook/react": "^6.4.19",
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^12.1.4",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
+    "@types/testing-library__jest-dom": "^5.14.3",
     "babel-loader": "^8.2.4",
     "husky": "^7.0.4",
     "react": "^17.0.2",
@@ -83,7 +85,13 @@
     "node-sass": "^7.0.1",
     "sass": "^1.49.9"
   },
-  "keywords":[
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
+  "keywords": [
     "react navigation",
     "react navbar",
     "react animated navbar",

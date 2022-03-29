@@ -1,11 +1,11 @@
+import { render, screen } from "@testing-library/react";
 import React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Default as Thing } from '../stories/GhostNavbar.stories';
+import { GhostNavbar } from "../src/GhostNavbar/GhostNavbar";
 
-describe('Thing', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Thing />, div);
-    ReactDOM.unmountComponentAtNode(div);
-  });
-});
+
+test('Should render GhostNavbar component', ()=>{
+  render(<GhostNavbar/>)
+  const component = screen.getByTestId('GhostNavbar')
+  expect(component).toBeInTheDocument();
+  expect(component).toHaveTextContent("Hello")
+})

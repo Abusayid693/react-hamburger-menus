@@ -66,6 +66,7 @@ export const GhostButton = (props: GhostButtonProps) => {
         ...cssVariables,
       }}
       ref={ref}
+      data-testid={'GhostButton'}
     >
       <input
         type="checkbox"

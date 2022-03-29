@@ -56,6 +56,7 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
         ...styles?.navigation,
         ...cssVariables,
       }}
+      data-testid = {'GhostNavbar'}
     >
       <input
         type="checkbox"
