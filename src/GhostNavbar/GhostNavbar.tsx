@@ -56,7 +56,7 @@ export const GhostNavbar = (
   const uniqueId = id ?? Math.floor(Math.random() * 30000000);
   const floatButtonWidth = styles?.navigationButton?.width ?? '6em';
   const floatButtonHeight = styles?.navigationButton?.height ?? '6em';
-  const classId = 'rhm-n-g';
+  const classId = 'rhm-gn';
 
   const revealType = rightReveal ? 'right-screen' : 'left-screen';
   const backgroundType = backgroundBox ? 'square-box' : 'circle-box';

@@ -56,7 +56,7 @@ export const GhostButton = (
 
   // It tracks how to style the list based on page position
   const uniqueId = id ?? Math.floor(Math.random() * 30000000);
-  const classId = 'rhm-n-g-b';
+  const classId = 'rhm-gb';
 
   let listPosition = 'left';
   if (styles?.floatButtonX && styles?.floatButtonX < 50) listPosition = 'right';
@@ -77,6 +77,7 @@ export const GhostButton = (
         id={`${classId}-nav-toggle-${uniqueId}`}
         checked={checked}
         onChange={() => setChecked(!checked)}
+        data-testid={'GhostButton-checkbox'}
       />
       <label
         htmlFor={`${classId}-nav-toggle-${uniqueId}`}
@@ -86,24 +87,27 @@ export const GhostButton = (
           right: styles?.floatButtonX + 'vw',
           top: styles?.floatButtonY + 'vh',
         }}
+        data-testid={'GhostButton-button'}
       >
         <span
           className={`${classId}-navigation__icon`}
           style={{
             ...styles?.navigationIcon,
           }}
+          data-testid={'GhostButton-icon'}
         >
           &nbsp;
         </span>
         <div
           className={`
-          ${classId}-navigation__background 
-          ${classId}-navigation__background--${listPosition}
+          ${classId}-navigation__card
+          ${classId}-navigation__card--${listPosition}
           
           `}
           style={{
             ...styles?.navigationCard,
           }}
+          data-testid={'GhostButton-card'}
         >
           {children ? (
             children

@@ -1,9 +1,9 @@
 # react-hamburger-menus
 
 <div>
-  <img src="https://img.shields.io/npm/v/react-animated-navbars">
-  <img src="https://img.shields.io/npm/l/react-animated-navbars">
-  <img src="https://img.shields.io/node/v-lts/react-animated-navbars">
+  <img src="https://img.shields.io/npm/v/react-hamburger-menus">
+  <img src="https://img.shields.io/npm/l/react-hamburger-menus">
+  <img src="https://img.shields.io/node/v-lts/react-hamburger-menus">
   <img src="https://img.shields.io/github/languages/top/abusayid693/react-animated-navbars">
   <img src="https://img.shields.io/github/release-date/abusayid693/react-animated-navbars">
 </div>
@@ -16,6 +16,10 @@ Congrats! You just saved yourself hours of work by using react-animated-navbars 
 <img src="https://i.imgur.com/GUX4Thb.png"/>
 
 ## Installation
+install it using npm or yarn to include it in your own React project
+
+You will also need to import css modules in root your project before using it. `dist/react-animated-navbars.cjs.development.css`
+
 ### npm
 
 `npm i react-hamburger-menus`
@@ -25,6 +29,9 @@ Congrats! You just saved yourself hours of work by using react-animated-navbars 
 `yarn add react-hamburger-menus`
 
 ## Usage
+
+- [Ghost Navbar](###-ghost-navbar)
+- [Ghost Button](###-ghost-button)
 
 
 ### Ghost Navbar
@@ -60,9 +67,26 @@ const App = () => {
 
 export default App;
 ```
-### API 
 
-#### Props
+#### Using with next js/ Gatsby js or other React Framework for application routing
+
+
+```js
+import Link from 'next/link'
+.
+.
+  <ul>
+    <li>
+      <Link href="/"> Home </Link>
+    </li>  
+    .
+    .
+```
+
+### 🔨 API 
+
+####  Props
+Direct props use `ul` tag with `li` or else animations wont be applied
 
 | Prop                | Type             | Default               | Description                                                                                                      |
 | ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -71,6 +95,10 @@ export default App;
 | styles                 | styles object      | **optional**          | Base styles    |
 
 #### STYLES
+
+If you want custom styles pass your CSS styling(`Javascript Object`) in Styles props using specific key mentioned below to apply styling correctly.
+
+[Take a look at the live demo for custom styling!](https://codesandbox.io/s/react-hamburger-menu-9svje8?file=/src/GhostNavbar1.js)
 
 | Property                | Type             | Default               | Description                                                                                                      |
 | ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -82,7 +110,7 @@ export default App;
 | floatButtonX                 | number          | `85`      | Ghost button X position from right      |
 | floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
 | listHoverColor                 | [string, string]          | `[color 1, color 2]`       | Hover animation color     |
-| font- Color, Size, HoverColor                 | **optional**         | string      |  common text styling     |
+| fontColor, Size, HoverColor                 | **optional**         | string      |  common text styling     |
 
 ### Ghost Button
 
@@ -113,7 +141,7 @@ const App = () => {
 
 export default App;
 ```
-### API 
+### 🔨 API 
 
 #### Props
 
@@ -124,6 +152,7 @@ export default App;
 | styles                 | styles object      | **optional**          | Base styles    |
 
 #### STYLES
+[Take a look at the live demo for custom styling!](https://codesandbox.io/s/react-hamburger-menu-9svje8?file=/src/GhostButton2.js)
 
 | Property                | Type             | Default               | Description                                                                                                      |
 | ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -134,7 +163,22 @@ export default App;
 | floatButtonSize                 | number          | **optional**          | Ghost button size (just number)      |
 | floatButtonX                 | number          | `85`      | Ghost button X position from right      |
 | floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
-| font- Color, Size                 | **optional**         | string      |  common text styling     |
+| fontColor, Size                 | **optional**         | string      |  common text styling     |
 | iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
 | listHoverColor                 | string         | `aqua`       | Hover animation color     |
 | leftReveal, rightReveal, backgroundBox, backgroundCircle                 | string         | `leftReveal backgroundCircle`       | annimation     |
+
+### 🐛 Bug Reporting
+`The Library is in developing stage`
+- Feel free to Open an [issue on GitHub](https://github.com/Abusayid693/react-hamburger-menus/issues) to request any additional features you might need for your use case.
+- Connect with me on [LinkedIn](https://www.linkedin.com/in/rehan-choudhury-66842a164/). I'd love ❤️️ to hear where you are using this library.
+
+### Browser support
+Because this project uses CSS3 features, it's only meant for modern browsers. Some browsers currently fail to apply some of the animations correctly.
+
+It is well tested for chrome, safari and firefox.
+
+
+### 📜 License
+
+This software is open source, licensed under the [MIT License](./LICENSE).

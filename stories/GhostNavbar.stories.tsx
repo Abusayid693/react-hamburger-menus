@@ -15,7 +15,6 @@ export const Default = () => (
     backgroundBox
     
     styles={{
-      floatButtonY: 34,
       navigation: {
         fontFamily: 'font-family: "Lato", sans-serif;',
         fontWeight: '300',

@@ -1,7 +1,7 @@
 @import './base.scss';
 @import '../../preset.scss';
 
-.rhm-n-g-b-navigation {
+.rhm-gb-navigation {
   @include preset;
 
   position: relative;
@@ -18,9 +18,7 @@
     width: calc(var(--gb-floatButtonSize) * 1em);
     height: calc(var(--gb-floatButtonSize) * 1em);
     position: fixed;
-    // top: calc(var(--gb-floatButtonY) * 1vh);
     border-radius: 50%;
-    // right: calc(var(--gb-floatButtonX) * 1vw);
     z-index: 100;
     text-align: center;
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
@@ -84,7 +82,7 @@
     background-color: transparent;
   }
 
-  &__background {
+  &__card {
     width: 220px;
     min-height: 200px;
     border-radius: 5px;
@@ -133,7 +131,7 @@
     }
   }
 
-  &__checkbox:checked + &__button > &__background {
+  &__checkbox:checked + &__button > &__card {
     opacity: 1;
     transform: scale(1);
     pointer-events: all;

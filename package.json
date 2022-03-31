@@ -2,7 +2,7 @@
   "name": "react-hamburger-menus",
   "npmName": "react-hamburger-menus",
   "description": "A react library for creating animated hamburger menu with CSS transitions.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -32,7 +32,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "tsdx lint",
+      "pre-push": "npm run test"
     }
   },
   "prettier": {
@@ -96,6 +97,7 @@
     "menu",
     "react",
     "react-component",
-    "react-menu"
+    "react-menu",
+    "hamburger-menu"
   ]
 }
