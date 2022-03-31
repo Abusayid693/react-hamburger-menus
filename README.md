@@ -42,7 +42,7 @@ You will also need to import css modules in root your project before using it. `
 ```javascript
 import React from "react";
 import { GhostNavbar } from "react-hamburger-menus";
-import "react-hamburger-menus/dist/react-hamburger-menus.cjs.development.css";
+import "react-hamburger-menus/dist/style.css";
 
 const App = () => {
   return (
@@ -117,7 +117,7 @@ If you want custom styles pass your CSS styling(`Javascript Object`) in Styles p
 ```javascript
 import React from "react";
 import { GhostButton } from "react-hamburger-menus";
-import "react-hamburger-menus/dist/react-hamburger-menus.cjs.development.css";
+import "react-hamburger-menus/dist/style.css";
 
 const App = () => {
   return (
@@ -141,6 +141,21 @@ const App = () => {
 
 export default App;
 ```
+
+#### Using icon or html (as icon)
+
+```js
+.
+  <GhostButton
+    icon={
+      <p style={{ fontSize: '19px', borderBottom: '1px solid grey' }}>Users</p>
+    }
+    />
+.
+.
+```
+
+
 ### 🔨 API 
 
 #### Props
@@ -150,6 +165,7 @@ export default App;
 | children                 | ReactNode `(ul > li)`        | **optional**          | Navbar items    |
 | className                 | string      | **optional**          | Base class    |
 | styles                 | styles object      | **optional**          | Base styles    |
+| icon                 | ReactNode      | **optional**          | custom icon   |
 
 #### STYLES
 [Take a look at the live demo for custom styling!](https://codesandbox.io/s/react-hamburger-menu-9svje8?file=/src/GhostButton2.js)

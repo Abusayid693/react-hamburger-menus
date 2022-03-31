@@ -2,7 +2,7 @@
   "name": "react-hamburger-menus",
   "npmName": "react-hamburger-menus",
   "description": "A react library for creating animated hamburger menu with CSS transitions.",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -16,16 +16,17 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test ",
+    "build": "tsdx build && npm run postbuild",
+    "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "prepare": "tsdx build && npm run postbuild",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "compile:sass": "node-sass src/**/sass/style.scss src/**/style.css -w",
-    "compile:all": "sh ./sass-comile.sh"
+    "compile:all": "sh ./__script__/sass-comile.sh",
+    "postbuild" :"sh ./__script__/build.sh"
   },
   "peerDependencies": {
     "react": ">=16"

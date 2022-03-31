@@ -3,8 +3,11 @@ module.exports = {
   rollup(config, options) {
     config.plugins.push(
       postcss({
-        modules: true,
-      })
+        inject: false,
+         extract: !!options.writeMeta,
+         
+       }),
+       
     );
     return config;
   },

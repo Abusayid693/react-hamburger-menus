@@ -26,6 +26,7 @@ export interface GhostButtonProps extends HTMLAttributes<HTMLDivElement> {
   styles?: Styles;
   className?: string;
   id?: string;
+  icon?: ReactNode;
 }
 
 const defaultStyles = {
@@ -36,7 +37,7 @@ const defaultStyles = {
 export const GhostButton = (
   props: GhostButtonProps = { styles: defaultStyles }
 ) => {
-  const { children, styles, className, id } = props;
+  const { children, styles, className, id, icon } = props;
 
   const [checked, setChecked] = useState(false);
   const ref = useRef(null);
@@ -89,15 +90,17 @@ export const GhostButton = (
         }}
         data-testid={'GhostButton-button'}
       >
-        <span
-          className={`${classId}-navigation__icon`}
-          style={{
-            ...styles?.navigationIcon,
-          }}
-          data-testid={'GhostButton-icon'}
-        >
-          &nbsp;
-        </span>
+        {icon ?? (
+          <span
+            className={`${classId}-navigation__icon`}
+            style={{
+              ...styles?.navigationIcon,
+            }}
+            data-testid={'GhostButton-icon'}
+          >
+            &nbsp;
+          </span>
+        )}
         <div
           className={`
           ${classId}-navigation__card
@@ -109,9 +112,7 @@ export const GhostButton = (
           }}
           data-testid={'GhostButton-card'}
         >
-          {children ? (
-            children
-          ) : (
+          {children ?? (
             <ul>
               <li>ABOUT</li>
               <li>PROJECTS</li>
