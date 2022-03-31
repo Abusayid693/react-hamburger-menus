@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, ReactNode, useRef, useState } from 'react';
-import { HandleOutsideClick } from "./hook";
+import { HandleOutsideClick } from './hook';
 import './style.css';
 
 interface Styles {
@@ -16,7 +16,7 @@ interface Styles {
   fontSize?: string;
   listHoverColor?: string;
 
-  iconColor?:string
+  iconColor?: string;
   iconWidth?: string;
   iconHeight?: string;
 }
@@ -28,34 +28,38 @@ export interface GhostButtonProps extends HTMLAttributes<HTMLDivElement> {
   id?: string;
 }
 
-export const GhostButton = (props: GhostButtonProps) => {
-  
-  const { children, styles, className ,id} = props;
+const defaultStyles = {
+  floatButtonX: 90,
+  floatButtonY: 2,
+};
+
+export const GhostButton = (
+  props: GhostButtonProps = { styles: defaultStyles }
+) => {
+  const { children, styles, className, id } = props;
 
   const [checked, setChecked] = useState(false);
-  const ref= useRef(null);
-  
-  HandleOutsideClick(ref, setChecked)
+  const ref = useRef(null);
+
+  HandleOutsideClick(ref, setChecked);
 
   var cssVariables = {
     '--gb-floatButtonSize': styles?.floatButtonSize ?? 6,
-    '--gb-floatButtonX': styles?.floatButtonX ?? 90,
-    '--gb-floatButtonY': styles?.floatButtonY ?? 2,
     '--gb-fontColor': styles?.fontColor ?? 'black',
     '--gb-fontSize': styles?.fontSize ?? '1em',
-    '--gb-listHoverColor': styles?.listHoverColor ?? 'rgba(127, 255, 212, 0.157)',
+    '--gb-listHoverColor':
+      styles?.listHoverColor ?? 'rgba(127, 255, 212, 0.157)',
     '--gb-icon-color': styles?.iconColor ?? 'black',
     '--gb-icon-width': styles?.iconWidth ?? '2.6em',
-    '--gb-icon-height': styles?.iconHeight ?? '2px'
+    '--gb-icon-height': styles?.iconHeight ?? '2px',
   } as React.CSSProperties;
 
   // It tracks how to style the list based on page position
-  const uniqueId = id ?? Math.floor(Math.random() * 30000000)
-  const classId = 'react-hamburger-menus-ghost-button';
+  const uniqueId = id ?? Math.floor(Math.random() * 30000000);
+  const classId = 'rhm-n-g-b';
 
   let listPosition = 'left';
-  if (styles?.floatButtonX && styles?.floatButtonX < 50)
-    listPosition = 'right';
+  if (styles?.floatButtonX && styles?.floatButtonX < 50) listPosition = 'right';
 
   return (
     <div
@@ -71,14 +75,16 @@ export const GhostButton = (props: GhostButtonProps) => {
         type="checkbox"
         className={`${classId}-navigation__checkbox`}
         id={`${classId}-nav-toggle-${uniqueId}`}
-        checked = {checked}
-        onChange = {() => setChecked(!checked)}
+        checked={checked}
+        onChange={() => setChecked(!checked)}
       />
       <label
         htmlFor={`${classId}-nav-toggle-${uniqueId}`}
         className={`${classId}-navigation__button`}
         style={{
           ...styles?.navigationButton,
+          right: styles?.floatButtonX + 'vw',
+          top: styles?.floatButtonY + 'vh',
         }}
       >
         <span

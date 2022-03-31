@@ -32,12 +32,17 @@ export interface GhostNavbarProps extends HTMLAttributes<HTMLDivElement> {
   backgroundCircle?: boolean;
 }
 
-export const GhostNavbar = (props: GhostNavbarProps) => {
+const defaultStyles = {
+  floatButtonX: 90,
+  floatButtonY: 2,
+};
+
+export const GhostNavbar = (
+  props: GhostNavbarProps = { styles: defaultStyles }
+) => {
   const { styles, children, className, id, rightReveal, backgroundBox } = props;
 
   var cssVariables = {
-    '--gn-floatButtonX': styles?.floatButtonX ?? 5,
-    '--gn-floatButtonY': styles?.floatButtonY ?? 2,
     '--gn-listHoverColor-1': styles?.listHoverColor?.[0] ?? 'transparent',
     '--gn-listHoverColor-2': styles?.listHoverColor?.[1] ?? '#fff',
     '--gn-fontColor': styles?.fontColor ?? 'pink',
@@ -51,8 +56,8 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
   const uniqueId = id ?? Math.floor(Math.random() * 30000000);
   const floatButtonWidth = styles?.navigationButton?.width ?? '6em';
   const floatButtonHeight = styles?.navigationButton?.height ?? '6em';
-  const classId = 'react-hamburger-menus-navbar-ghost';
-  
+  const classId = 'rhm-n-g';
+
   const revealType = rightReveal ? 'right-screen' : 'left-screen';
   const backgroundType = backgroundBox ? 'square-box' : 'circle-box';
 
@@ -70,20 +75,24 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
         type="checkbox"
         className={`${classId}-navigation__checkbox`}
         id={`${classId}-navigation-toggle-${uniqueId}`}
+        data-testid={'GhostNavbar-checkbox'}
       />
       <label
         htmlFor={`${classId}-navigation-toggle-${uniqueId}`}
         className={`${classId}-navigation__button`}
-        // style={styles?.navigationButton}
         style={{
           ...styles?.navigationButton,
           width: floatButtonWidth,
           height: floatButtonHeight,
+          right: styles?.floatButtonX + 'vw',
+          top: styles?.floatButtonY + 'vh',
         }}
+        data-testid={'GhostNavbar-button'}
       >
         <span
           className={`${classId}-navigation__icon`}
           style={styles?.navigationIcon}
+          data-testid={'GhostNavbar-icon'}
         >
           {' '}
           &nbsp;
@@ -95,7 +104,10 @@ export const GhostNavbar = (props: GhostNavbarProps) => {
           ...styles?.navigationBackground,
           width: floatButtonWidth,
           height: floatButtonHeight,
+          right: styles?.floatButtonX + 'vw',
+          top: styles?.floatButtonY + 'vh',
         }}
+        data-testid={'GhostNavbar-background'}
       >
         &nbsp;
       </div>

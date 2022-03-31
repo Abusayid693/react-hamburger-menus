@@ -2,7 +2,7 @@
 @import '../../preset.scss';
 @import "./animations.scss";
 
-.react-hamburger-menus-navbar-ghost-navigation {
+.rhm-n-g-navigation {
   @include preset;
 
   position: relative;
@@ -18,9 +18,9 @@
     width: 7em;
     height: 7em;
     position: fixed;
-    top: calc(var(--gn-floatButtonY) * 1vh);
+    // top: calc(var(--gn-floatButtonY) * 1vh);
     border-radius: 50%;
-    right: calc(var(--gn-floatButtonX) * 1vw);
+    // right: calc(var(--gn-floatButtonX) * 1vw);
     z-index: 1001;
     text-align: center;
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
@@ -87,8 +87,8 @@
     width: 6em;
     height: 6em;
     position: fixed;
-    top: calc(var(--gn-floatButtonY)  * 1vh);
-    right: calc(var(--gn-floatButtonX) * 1vw);
+    // top: calc(var(--gn-floatButtonY)  * 1vh);
+    // right: calc(var(--gn-floatButtonX) * 1vw);
     background-color: $color-pink-2;
     z-index: 1000;
     transition: transform 0.8s timing_function_1();

@@ -1,7 +1,7 @@
 @import './base.scss';
 @import '../../preset.scss';
 
-.react-hamburger-menus-ghost-button-navigation {
+.rhm-n-g-b-navigation {
   @include preset;
 
   position: relative;
@@ -18,9 +18,9 @@
     width: calc(var(--gb-floatButtonSize) * 1em);
     height: calc(var(--gb-floatButtonSize) * 1em);
     position: fixed;
-    top: calc(var(--gb-floatButtonY) * 1vh);
+    // top: calc(var(--gb-floatButtonY) * 1vh);
     border-radius: 50%;
-    right: calc(var(--gb-floatButtonX) * 1vw);
+    // right: calc(var(--gb-floatButtonX) * 1vw);
     z-index: 100;
     text-align: center;
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
