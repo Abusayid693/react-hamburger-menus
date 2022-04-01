@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, ReactNode, useRef, useState } from 'react';
-import { HandleOutsideClick } from './hook';
+import { HandleOutsideClick } from '../../hooks/handleOutsideClick';
 import './style.css';
 
 interface Styles {

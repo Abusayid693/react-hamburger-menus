@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 import React from 'react';
-import { GhostButton } from '../src/GhostButton/GhostButton';
+import { GhostButton } from '../src/components/GhostButton/GhostButton';
 
 const meta: Meta = {
   title: 'Ghost Button',
@@ -11,9 +11,6 @@ export default meta;
 
 export const Default = () => (
   <GhostButton
-    icon={
-      <p style={{ fontSize: '19px', borderBottom: '1px solid grey' }}>Users</p>
-    }
     styles={{
       navigation: { fontFamily: 'Arial, Helvetica, sans-serif' },
       fontColor: 'grey',
