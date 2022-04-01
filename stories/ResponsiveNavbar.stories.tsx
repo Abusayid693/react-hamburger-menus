@@ -14,12 +14,15 @@ export const Default = () => (
     logo={<p style={{fontSize:'1.6em', fontWeight: 300}}>Logo</p>}
     styles={{
       navigation: { fontFamily: 'Arial, Helvetica, sans-serif' },
-      navigationBar: {
+      navigationBarSmall: {
         backgroundColor: 'aliceblue',
       },
-      navigationMobileButton: {
-        backgroundColor: 'aliceblue',
+      navigationBarLarge:{
+          backgroundColor:'red'
       },
+      navigationCardSmall:{
+          backgroundColor: 'aliceblue'
+      }
     }}
   />
 );

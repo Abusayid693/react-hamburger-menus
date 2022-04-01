@@ -4,9 +4,11 @@ import './style.css';
 
 interface Styles {
   navigation?: React.CSSProperties;
-  navigationMobileButton?: React.CSSProperties;
-  navigationMobileIcon?: React.CSSProperties;
-  navigationBar?: React.CSSProperties;
+  navigationBarSmall?: React.CSSProperties;
+  navigationCardSmall?: React.CSSProperties;
+  navigationButtonSmall?: React.CSSProperties;
+
+  navigationBarLarge?: React.CSSProperties;
 
   iconColor?: string;
   iconWidth?: string;
@@ -19,7 +21,6 @@ export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   id?: string;
   logo?: ReactNode;
-  
 }
 
 const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
@@ -37,10 +38,15 @@ const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
     '--rn-icon-height': styles?.iconHeight ?? '2px',
   } as React.CSSProperties;
 
-
+  const navigationCardStyle = !media
+    ? { ...styles?.navigationBarLarge, ...styles?.navigationCardSmall }
+    : { ...styles?.navigationBarLarge };
 
   return (
-    <div className={`${classId}-navigation ${className}`} style={{ ...styles?.navigation, ...cssVariables }}>
+    <div
+      className={`${classId}-navigation ${className}`}
+      style={{ ...styles?.navigation, ...cssVariables }}
+    >
       {!media && (
         <React.Fragment>
           <input
@@ -53,7 +59,7 @@ const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
             className={`${classId}-navigation__button`}
             style={{
               justifyContent: logo ? 'space-between' : 'flex-end',
-              ...styles?.navigationMobileButton,
+              ...styles?.navigationBarSmall,
             }}
           >
             {logo && <span>{logo}</span>}
@@ -61,7 +67,7 @@ const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
               className={`${classId}-navigation__icon`}
               data-testid={'GhostNavbar-icon'}
               style={{
-                ...styles?.navigationMobileIcon,
+                ...styles?.navigationButtonSmall,
               }}
             >
               {' '}
@@ -70,10 +76,7 @@ const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
           </label>
         </React.Fragment>
       )}
-      <nav
-        className={`${classId}-navigation__nav`}
-        style={{ ...styles?.navigationBar }}
-      >
+      <nav className={`${classId}-navigation__nav`} style={navigationCardStyle}>
         {media && logo && (
           <ul className={`${classId}-navigation__logo`}>
             <li>{logo}</li>
