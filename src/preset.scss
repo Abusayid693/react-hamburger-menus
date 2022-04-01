@@ -39,5 +39,10 @@
     padding: 0;
     box-sizing: inherit;
   }
+
+  ul,ol{
+    list-style: none;
+  }
+
   @include userselect;
 }

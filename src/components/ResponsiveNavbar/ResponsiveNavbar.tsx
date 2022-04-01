@@ -2,19 +2,24 @@ import React, { HTMLAttributes, ReactNode, useState } from 'react';
 import { UseMedia } from '../../hooks';
 import './style.css';
 
-
 interface Styles {
   navigation?: React.CSSProperties;
-  navigationButton?: React.CSSProperties
-}
+  navigationMobileButton?: React.CSSProperties;
+  navigationMobileIcon?: React.CSSProperties;
+  navigationBar?: React.CSSProperties;
 
+  iconColor?: string;
+  iconWidth?: string;
+  iconHeight?: string;
+}
 
 export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
-  styles?: any;
+  styles?: Styles;
   className?: string;
   id?: string;
   logo?: ReactNode;
+  
 }
 
 const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
@@ -26,8 +31,16 @@ const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
   const classId = 'rhm-rn';
   const uniqueId = Math.floor(Math.random() * 30000000);
 
+  var cssVariables = {
+    '--rn-icon-color': styles?.iconColor ?? 'black',
+    '--rn-icon-width': styles?.iconWidth ?? '2.6em',
+    '--rn-icon-height': styles?.iconHeight ?? '2px',
+  } as React.CSSProperties;
+
+
+
   return (
-    <div className={`${classId}-navigation`}>
+    <div className={`${classId}-navigation ${className}`} style={{ ...styles?.navigation, ...cssVariables }}>
       {!media && (
         <React.Fragment>
           <input
@@ -40,12 +53,16 @@ const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
             className={`${classId}-navigation__button`}
             style={{
               justifyContent: logo ? 'space-between' : 'flex-end',
+              ...styles?.navigationMobileButton,
             }}
           >
             {logo && <span>{logo}</span>}
             <span
               className={`${classId}-navigation__icon`}
               data-testid={'GhostNavbar-icon'}
+              style={{
+                ...styles?.navigationMobileIcon,
+              }}
             >
               {' '}
               &nbsp;
@@ -53,9 +70,12 @@ const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
           </label>
         </React.Fragment>
       )}
-      <nav className={`${classId}-navigation__nav`}>
+      <nav
+        className={`${classId}-navigation__nav`}
+        style={{ ...styles?.navigationBar }}
+      >
         {media && logo && (
-          <ul>
+          <ul className={`${classId}-navigation__logo`}>
             <li>{logo}</li>
           </ul>
         )}

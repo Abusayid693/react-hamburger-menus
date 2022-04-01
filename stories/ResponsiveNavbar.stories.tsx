@@ -11,6 +11,15 @@ export default meta;
 
 export const Default = () => (
   <ResponsiveNavbar
-//   logo={<h3>Rehan</h3>}
+    logo={<p style={{fontSize:'1.6em', fontWeight: 300}}>Logo</p>}
+    styles={{
+      navigation: { fontFamily: 'Arial, Helvetica, sans-serif' },
+      navigationBar: {
+        backgroundColor: 'aliceblue',
+      },
+      navigationMobileButton: {
+        backgroundColor: 'aliceblue',
+      },
+    }}
   />
 );
