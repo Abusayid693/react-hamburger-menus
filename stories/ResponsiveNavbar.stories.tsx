@@ -1,6 +1,8 @@
 import { Meta } from '@storybook/react';
 import React from 'react';
-import ResponsiveNavbar from '../src/components/ResponsiveNavbar/ResponsiveNavbar';
+// import { ResponsiveNavbar } from '../src/components/ResponsiveNavbar/ResponsiveNavbar';
+import { ResponsiveNavbar } from "../dist";
+import "../dist/style.css";
 
 const meta: Meta = {
   title: 'ResponsiveNavbar',
@@ -14,12 +16,15 @@ export const Default = () => (
     logo={<p style={{fontSize:'1.6em', fontWeight: 300}}>Logo</p>}
     styles={{
       navigation: { fontFamily: 'Arial, Helvetica, sans-serif' },
-      navigationBar: {
+      navigationBarSmall: {
         backgroundColor: 'aliceblue',
       },
-      navigationMobileButton: {
-        backgroundColor: 'aliceblue',
+      navigationBarLarge:{
+          backgroundColor:'red'
       },
+      navigationCardSmall:{
+          backgroundColor: 'aliceblue'
+      }
     }}
   />
 );

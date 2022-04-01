@@ -13,7 +13,7 @@ Congrats! You just saved yourself hours of work by using react-animated-navbars 
 ## Demo
 [Take a look at the live demo!](https://codesandbox.io/s/react-hamburger-menu-9svje8?file=/src/App.js)
 
-<img src="https://i.imgur.com/GUX4Thb.png"/>
+<img src="https://i.imgur.com/c888gsC.png"/>
 
 ## Installation
 install it using npm or yarn to include it in your own React project
@@ -30,14 +30,15 @@ You will also need to import css modules in root your project before using it. `
 
 ## Usage
 
-- [Ghost Navbar](###-ghost-navbar)
-- [Ghost Button](###-ghost-button)
+- [Ghost Navbar](#ghost-navbar)
+- [Responsive Navbar](#responsive-navbar)
+- [Ghost Button](#ghost-button)
 
 
-### Ghost Navbar
+# Ghost Navbar
 
 - Import `GhostNavbar` component from `react-animated-navbars`
-- Import styles `react-animated-navbars/dist/react-animated-navbars.cjs.development.css`
+- Import styles `react-animated-navbars/dist/style.css`
 
 ```javascript
 import React from "react";
@@ -112,7 +113,77 @@ If you want custom styles pass your CSS styling(`Javascript Object`) in Styles p
 | listHoverColor                 | [string, string]          | `[color 1, color 2]`       | Hover animation color     |
 | fontColor, Size, HoverColor                 | **optional**         | string      |  common text styling     |
 
-### Ghost Button
+
+# Responsive Navbar
+
+#### Preview
+Small screen
+
+<img src="https://i.imgur.com/5jfZk9x.gif"/>
+
+Large screen
+
+<img src="https://i.imgur.com/wMaBYfA.png"/>
+
+```javascript
+import React from "react";
+import { ResponsiveNavbar } from "react-hamburger-menus";
+import "react-hamburger-menus/dist/style.css";
+
+export const Default = () => (
+  <ResponsiveNavbar
+    logo={<p>Logo</p>}
+    styles={{
+      navigation: { fontFamily: 'Arial, Helvetica, sans-serif' },
+      navigationBarSmall: {
+        backgroundColor: 'aliceblue',
+      },
+      navigationCardSmall: {
+        backgroundColor: 'aliceblue',
+      },
+    }}
+  >
+      <ul>
+        <li>ABOUT</li>
+        <li>PROJECTS</li>
+        <li>ELEMENTS</li>
+        <li>CONTACT</li>
+      </ul>
+
+  </ResponsiveNavbar>
+);
+
+```
+
+### 🔨 API 
+
+####  Props
+Direct props use `ul` tag with `li` or else animations wont be applied
+
+| Prop                | Type             | Default               | Description                                                                                                      |
+| ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| children                 | ReactNode `(ul > li)`        | **optional**          | Navbar items    |
+| className                 | string      | **optional**          | Base class    |
+| styles                 | styles object      | **optional**          | Base styles    |
+| logo                 | ReactNode      | **optional**          | Navbar logo   |
+
+
+#### STYLES
+
+If you want custom styles pass your CSS styling(`Javascript Object`) in Styles props using specific key mentioned below to apply styling correctly.
+
+[Take a look at the live demo for custom styling!](https://codesandbox.io/s/react-hamburger-menu-9svje8?file=/src/GhostNavbar1.js)
+
+| Property                | Type             | Default               | Description                                                                                                      |
+| ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| navigation                 | React CSS Properties           | **optional**          | Base styling       |
+| navigationBarSmall                | React CSS Properties           | **optional**          | Navbar small screen styling     |
+| navigationButtonSmall                | React CSS Properties           | **optional**          | Navbar button small screen styling (***toggle***)     |
+| navigationCardSmall                | React CSS Properties           | **optional**          | Navbar card small screen styling (***toggle***)     |
+| navigationBarLarge                | React CSS Properties           | **optional**          | Navbar card large screen styling (***toggle***)     |
+| iconColor, iconWidth,  iconHeight             | string          | **optional**          | Icon styling (***toggle***)     |
+
+# Ghost Button
 
 ```javascript
 import React from "react";
