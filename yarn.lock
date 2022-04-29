@@ -10516,8 +10516,8 @@ sass-graph@4.0.0:
     yargs "^17.2.1"
 
 sass@^1.49.10:
-  version "1.49.10"
-  resolved "https://registry.npmjs.org/sass/-/sass-1.49.10.tgz"
+  version "1.51.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.51.0.tgz#25ea36cf819581fe1fe8329e8c3a4eaaf70d2845"
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
