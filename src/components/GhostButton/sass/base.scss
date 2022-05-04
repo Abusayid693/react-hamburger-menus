@@ -6,4 +6,7 @@ $color-grey-light-2: rgb(235, 235, 235);
 
 @function timing_function() {
     @return cubic-bezier(0.2, 0.94, 0.66, 1.21);
-  }
+  };
+@mixin  triangle {
+  clip-path: polygon(50% 0%, 0 62%, 100% 63%);
+}
