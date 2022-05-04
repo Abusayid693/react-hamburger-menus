@@ -27,9 +27,9 @@ export interface GhostNavbarProps extends HTMLAttributes<HTMLDivElement> {
   id?: string;
 
   leftReveal?: boolean;
-  rightReveal?: boolean;
+  rightReveal?: boolean; 
   backgroundBox?: boolean;
-  backgroundCircle?: boolean;
+  backgroundCircle?: boolean; 
 }
 
 const defaultStyles = {

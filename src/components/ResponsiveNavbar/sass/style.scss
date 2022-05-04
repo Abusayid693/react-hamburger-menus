@@ -7,7 +7,7 @@
   position: relative;
   font-size: 10px;
   font-family: inherit;
-
+  
   &__checkbox {
     display: none;
   }
@@ -90,7 +90,7 @@
     position: fixed;
     opacity: 1;
     width: 100vw;
-    transition: all 0.3s ease-out;
+    transition: all var(--rn-animation-delay) ease-out;
     top: 0;
     background-color: $color-white;
     left: 0;
@@ -137,7 +137,7 @@
     }
 
     transform: translateY(-10em);
-    transition: all 0.3s ease-out;
+    transition: all var(--rn-animation-delay) ease-out;
 
     @include for-desktop {
       transform: translateY(0em);
