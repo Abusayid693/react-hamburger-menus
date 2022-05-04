@@ -1,6 +1,8 @@
 import { Meta } from '@storybook/react';
 import React from 'react';
-import ResponsiveNavbar from '../src/components/ResponsiveNavbar/ResponsiveNavbar';
+// import { ResponsiveNavbar } from '../src/components/ResponsiveNavbar/ResponsiveNavbar';
+import { ResponsiveNavbar } from "../dist";
+import "../dist/style.css";
 
 const meta: Meta = {
   title: 'ResponsiveNavbar',

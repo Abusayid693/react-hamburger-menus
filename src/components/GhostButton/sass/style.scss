@@ -87,8 +87,8 @@
     min-height: 200px;
     border-radius: 5px;
     position: absolute;
-    top: 7.5em;
-    background-color: $color-white;
+    top: 6.5em;
+    background-color: $color-white ;
     z-index: 1000;
     transition: all 0.2s timing_function();
 
@@ -98,6 +98,17 @@
     padding: 5% 0;
 
     pointer-events: none;
+
+
+    &::before{
+      content:"";
+      width: 20px;
+      height: 20px;
+      background-color: inherit !important;
+      position: absolute;
+      top: -10px;
+      @include triangle
+    }
 
     & ul {
       text-decoration: none;
@@ -122,11 +133,18 @@
       & ul {
         text-align: left !important;
       }
+      &::before{
+        left: 10%;
+      }
     }
     &--right {
       right: 0;
       & ul {
         text-align: left !important;
+      }
+      &::before{
+        left: unset;
+        right: 10%;
       }
     }
   }

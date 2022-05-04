@@ -23,7 +23,7 @@ export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
   logo?: ReactNode;
 }
 
-const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
+export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
   const { children, styles, className, logo } = props;
 
   const [media, setMedia] = useState();
@@ -94,5 +94,3 @@ const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
     </div>
   );
 };
-
-export default ResponsiveNavbar;

@@ -14,10 +14,15 @@ export const Default = () => (
     styles={{
       navigation: { fontFamily: 'Arial, Helvetica, sans-serif' },
       fontColor: 'grey',
+      floatButtonX: 40,
       navigationButton: {
         boxShadow: '0px 0px 0px ',
         borderRadius: '0px',
       },
+      navigationCard:{
+        backgroundColor: 'yellow',
+        top: '6em'
+      }
     }}
   >
     <ul>
