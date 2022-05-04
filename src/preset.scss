@@ -44,5 +44,12 @@
     list-style: none;
   }
 
+ input[type="checkbox"]:focus + label::before {
+   outline: none !important;
+ }
+ input[type="checkbox"]:focus + label::after {
+  outline: none !important;
+}
+ 
   @include userselect;
 }
