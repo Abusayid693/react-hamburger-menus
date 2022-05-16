@@ -112,6 +112,7 @@ If you want custom styles pass your CSS styling(`Javascript Object`) in Styles p
 | floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
 | listHoverColor                 | [string, string]          | `[color 1, color 2]`       | Hover animation color     |
 | fontColor, Size, HoverColor                 | **optional**         | string      |  common text styling     |
+| zIndex                 | number          | **optional**          |  z-Index  (1000)      |
 
 
 # Responsive Navbar
@@ -182,6 +183,8 @@ If you want custom styles pass your CSS styling(`Javascript Object`) in Styles p
 | navigationCardSmall                | React CSS Properties           | **optional**          | Navbar card small screen styling (***toggle***)     |
 | navigationBarLarge                | React CSS Properties           | **optional**          | Navbar card large screen styling (***toggle***)     |
 | iconColor, iconWidth,  iconHeight             | string          | **optional**          | Icon styling (***toggle***)     |
+| zIndex                 | number          | **optional**          |  z-Index  (1000)      |
+| animationDelay                 | number | string          | **optional**          |  animation delay      |
 
 # Ghost Button
 
@@ -254,6 +257,7 @@ export default App;
 | iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
 | listHoverColor                 | string         | `aqua`       | Hover animation color     |
 | leftReveal, rightReveal, backgroundBox, backgroundCircle                 | string         | `leftReveal backgroundCircle`       | annimation     |
+| zIndex                 | number          | **optional**          |  z-Index  (1000)      |
 
 ### 🐛 Bug Reporting
 `The Library is in developing stage`

@@ -16,6 +16,8 @@ interface Styles {
   iconHeight?: string | number;
 
   animationDelay?: number | string;
+
+  zIndex?: number
 }
 
 export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
@@ -48,6 +50,7 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
     '--rn-icon-width': iconWidth,
     '--rn-icon-height': iconHeight,
     '--rn-animation-delay': animationDelay,
+    '--z-index' : styles?.zIndex ?? 1000
   } as React.CSSProperties;
 
   return (

@@ -19,7 +19,7 @@
     height: 7em;
     position: fixed;
     border-radius: 50%;
-    z-index: 1001;
+    z-index: var(--z-index) !important;
     text-align: center;
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
     user-select: none;
@@ -86,7 +86,7 @@
     height: 6em;
     position: fixed;
     background-color: $color-pink-2;
-    z-index: 1000;
+    z-index: calc(var(--z-index) - 10) !important;
     transition: transform 0.8s timing_function_1();
     transform: scale(0.5);
   }
@@ -94,7 +94,7 @@
   &__nav {
     height: 100vh;
     position: fixed;
-    z-index: 1000;
+    z-index: calc(var(--z-index) - 10) !important;
     opacity: 0;
     width: 0;
     transition: all 0.8s timing_function_2();
