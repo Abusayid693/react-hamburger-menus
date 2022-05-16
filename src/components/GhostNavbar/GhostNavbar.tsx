@@ -1,5 +1,7 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
+import { amplifyString } from '../../utils';
 import './style.css';
+
 
 interface Styles {
   navigation?: React.CSSProperties;
@@ -12,12 +14,14 @@ interface Styles {
   listHoverColor?: [string, string];
 
   iconColor?: string;
-  iconWidth?: string;
-  iconHeight?: string;
+  iconWidth?: string | number;
+  iconHeight?: string | number;
 
   fontColor?: string;
-  fontSize?: string;
+  fontSize?: string | number;
   fontHoverColor?: string;
+
+  zIndex?:number
 }
 
 export interface GhostNavbarProps extends HTMLAttributes<HTMLDivElement> {
@@ -42,15 +46,21 @@ export const GhostNavbar = (
 ) => {
   const { styles, children, className, id, rightReveal, backgroundBox } = props;
 
+
+  const iconWidth = amplifyString(styles?.iconWidth, '2.6em', 'px');
+  const iconHeight = amplifyString(styles?.iconHeight, '2px', 'px');
+  const fontSize = amplifyString(styles?.fontSize, '3em', 'px');
+
   var cssVariables = {
     '--gn-listHoverColor-1': styles?.listHoverColor?.[0] ?? 'transparent',
     '--gn-listHoverColor-2': styles?.listHoverColor?.[1] ?? '#fff',
     '--gn-fontColor': styles?.fontColor ?? 'pink',
-    '--gn-fontSize': styles?.fontSize ?? '3em',
+    '--gn-fontSize': fontSize,
     '--gn-fontHoverColor': styles?.fontHoverColor ?? 'blue',
     '--gn-icon-color': styles?.iconColor ?? 'black',
-    '--gn-icon-width': styles?.iconWidth ?? '2.6em',
-    '--gn-icon-height': styles?.iconHeight ?? '2px',
+    '--gn-icon-width': iconWidth,
+    '--gn-icon-height': iconHeight,
+    '--z-index' : styles?.zIndex ?? 1000
   } as React.CSSProperties;
 
   const uniqueId = id ?? Math.floor(Math.random() * 30000000);

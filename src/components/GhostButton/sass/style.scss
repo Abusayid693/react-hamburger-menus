@@ -4,7 +4,6 @@
 .rhm-gb-navigation {
   @include preset;
 
-  position: relative;
   user-select: none !important;
   font-size: 10px;
   font-family: inherit;
@@ -17,9 +16,9 @@
     background-color: $color-white;
     width: calc(var(--gb-floatButtonSize) * 1em);
     height: calc(var(--gb-floatButtonSize) * 1em);
-    position: fixed;
+    position: relative !important;
     border-radius: 50%;
-    z-index: 100;
+    z-index: var(--z-index) !important;
     text-align: center;
     box-shadow: 0 1em 3em rgba($color-black, 0.1);
     display: flex;
@@ -32,7 +31,7 @@
   &__icon {
     position: relative;
     cursor: pointer;
-    z-index: 10000;
+    z-index: calc(var(--z-index) + 10);
     user-select: none !important;
 
     &,
@@ -89,7 +88,7 @@
     position: absolute;
     top: 6.5em;
     background-color: $color-white ;
-    z-index: 1000;
+    z-index: calc(var(--z-index) + 10);
     transition: all 0.2s timing_function();
 
     box-shadow: 0 1em 3em rgba($color-black, 0.1);

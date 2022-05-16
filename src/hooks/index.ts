@@ -1,3 +1,2 @@
-export * from "./handleOutsideClick"
 export * from "./useMedia"
-
+export * from "./useOffset"
