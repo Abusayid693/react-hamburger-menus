@@ -7,7 +7,7 @@
   position: relative;
   font-size: 10px;
   font-family: inherit;
-
+  
   &__checkbox {
     display: none;
   }
@@ -20,7 +20,7 @@
     right: 0;
     left: 0;
 
-    z-index: 1001;
+    z-index: var(--z-index) !important;
     text-align: center;
     user-select: none;
 
@@ -36,7 +36,7 @@
     position: relative;
     cursor: pointer;
     margin: 0 auto;
-    z-index: 1006 !important;
+    z-index: calc(var(--z-index) + 6) !important;
 
     &,
     &::before,
@@ -90,12 +90,12 @@
     position: fixed;
     opacity: 1;
     width: 100vw;
-    transition: all 0.3s ease-out;
+    transition: all var(--rn-animation-delay) ease-out;
     top: 0;
     background-color: $color-white;
     left: 0;
     overflow: hidden;
-    z-index: 1000;
+    z-index: calc(var(--z-index) - 1);
 
 
     display: flex;
@@ -137,7 +137,7 @@
     }
 
     transform: translateY(-10em);
-    transition: all 0.3s ease-out;
+    transition: all var(--rn-animation-delay) ease-out;
 
     @include for-desktop {
       transform: translateY(0em);

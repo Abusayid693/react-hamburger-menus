@@ -1,5 +1,6 @@
 import React, { HTMLAttributes, ReactNode, useState } from 'react';
 import { UseMedia } from '../../hooks';
+import { amplifyString } from '../../utils';
 import './style.css';
 
 interface Styles {
@@ -11,8 +12,12 @@ interface Styles {
   navigationBarLarge?: React.CSSProperties;
 
   iconColor?: string;
-  iconWidth?: string;
-  iconHeight?: string;
+  iconWidth?: string | number;
+  iconHeight?: string | number;
+
+  animationDelay?: number | string;
+
+  zIndex?: number
 }
 
 export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
@@ -32,15 +37,21 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
   const classId = 'rhm-rn';
   const uniqueId = Math.floor(Math.random() * 30000000);
 
-  var cssVariables = {
-    '--rn-icon-color': styles?.iconColor ?? 'black',
-    '--rn-icon-width': styles?.iconWidth ?? '2.6em',
-    '--rn-icon-height': styles?.iconHeight ?? '2px',
-  } as React.CSSProperties;
-
   const navigationCardStyle = !media
     ? { ...styles?.navigationBarLarge, ...styles?.navigationCardSmall }
     : { ...styles?.navigationBarLarge };
+
+  const animationDelay = amplifyString(styles?.animationDelay, '0.1s', 's');
+  const iconWidth = amplifyString(styles?.iconWidth, '2.6em', 'em');
+  const iconHeight = amplifyString(styles?.iconHeight, '2px', 'px');
+
+  let cssVariables = {
+    '--rn-icon-color': styles?.iconColor ?? 'black',
+    '--rn-icon-width': iconWidth,
+    '--rn-icon-height': iconHeight,
+    '--rn-animation-delay': animationDelay,
+    '--z-index' : styles?.zIndex ?? 1000
+  } as React.CSSProperties;
 
   return (
     <div
@@ -87,7 +98,7 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
             <li>ABOUT</li>
             <li>PROJECTS</li>
             <li>ELEMENTS</li>
-            <li>CONTACT</li>
+            {/* <li>CONTACT</li> */}
           </ul>
         )}
       </nav>
