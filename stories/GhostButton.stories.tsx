@@ -14,8 +14,6 @@ export const Default = () => (
   <GhostButton
     styles={{
       navigation: { fontFamily: 'Arial, Helvetica, sans-serif' },
-      fontColor: 'grey',
-      floatButtonX: 80,
       navigationButton: {
         boxShadow: '0px 0px 0px ',
         borderRadius: '0px',
@@ -25,7 +23,9 @@ export const Default = () => (
         top: '6em'
       },
     }}
-    // sticky
+    fontColor = {'grey'}
+    floatButtonX = {80}
+    sticky
   >
     <ul>
       <li>ABOUT ME</li>

@@ -8,6 +8,16 @@ interface Styles {
   navigationButton?: React.CSSProperties;
   navigationIcon?: React.CSSProperties;
   navigationCard?: React.CSSProperties;
+}
+
+export interface GhostButtonProps extends HTMLAttributes<HTMLDivElement> {
+  children?: ReactNode;
+  styles?: Styles;
+  className?: string;
+  id?: string;
+  icon?: ReactNode;
+  sticky?:boolean;
+
 
   floatButtonSize?: string;
   floatButtonX?: number;
@@ -23,22 +33,13 @@ interface Styles {
   zIndex?:number
 }
 
-export interface GhostButtonProps extends HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode;
-  styles?: Styles;
-  className?: string;
-  id?: string;
-  icon?: ReactNode;
-  sticky?:boolean;
-}
-
 const defaultStyles = {
   floatButtonX: 90,
   floatButtonY: 2,
 };
 
 export const GhostButton = (
-  props: GhostButtonProps = { styles: defaultStyles }
+  props: GhostButtonProps = { ...defaultStyles }
 ) => {
   const { children, styles, className, id, icon, sticky } = props;
 
@@ -48,20 +49,20 @@ export const GhostButton = (
   HandleOutsideClick(ref, setChecked);
 
 
-  const iconWidth = amplifyString(styles?.iconWidth, '2.6em', 'px');
-  const iconHeight = amplifyString(styles?.iconHeight, '2px', 'px');
-  const fontSize = amplifyString(styles?.fontSize, '1em', 'px');
+  const iconWidth = amplifyString(props?.iconWidth, '2.6em', 'px');
+  const iconHeight = amplifyString(props?.iconHeight, '2px', 'px');
+  const fontSize = amplifyString(props?.fontSize, '1em', 'px');
 
   var cssVariables = {
-    '--gb-floatButtonSize': styles?.floatButtonSize ?? 6,
-    '--gb-fontColor': styles?.fontColor ?? 'black',
+    '--gb-floatButtonSize': props?.floatButtonSize ?? 6,
+    '--gb-fontColor': props?.fontColor ?? 'black',
     '--gb-fontSize': fontSize,
     '--gb-listHoverColor':
-      styles?.listHoverColor ?? 'rgba(127, 255, 212, 0.157)',
-    '--gb-icon-color': styles?.iconColor ?? 'black',
+    props?.listHoverColor ?? 'rgba(127, 255, 212, 0.157)',
+    '--gb-icon-color': props?.iconColor ?? 'black',
     '--gb-icon-width': iconWidth,
     '--gb-icon-height': iconHeight,
-    '--z-index' : styles?.zIndex ?? 1000
+    '--z-index' : props?.zIndex ?? 1000
   } as React.CSSProperties;
 
   // It tracks how to style the list based on page position
@@ -69,7 +70,7 @@ export const GhostButton = (
   const classId = 'rhm-gb';
 
   let listPosition = 'left';
-  if (styles?.floatButtonX && styles?.floatButtonX < 50) listPosition = 'right';
+  if (props?.floatButtonX && props?.floatButtonX < 50) listPosition = 'right';
 
   return (
     <div
@@ -77,8 +78,8 @@ export const GhostButton = (
       style={{
         ...styles?.navigation,
         ...cssVariables,
-          right: styles?.floatButtonX + 'vw',
-          top: styles?.floatButtonY + 'vh',
+          right: props?.floatButtonX + 'vw',
+          top: props?.floatButtonY + 'vh',
           position: sticky? 'fixed' : 'unset'
       }}
       ref={ref}

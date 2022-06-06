@@ -8,20 +8,6 @@ interface Styles {
   navigationButton?: React.CSSProperties;
   navigationIcon?: React.CSSProperties;
   navigationBackground?: React.CSSProperties;
-
-  floatButtonX?: number;
-  floatButtonY?: number;
-  listHoverColor?: [string, string];
-
-  iconColor?: string;
-  iconWidth?: string | number;
-  iconHeight?: string | number;
-
-  fontColor?: string;
-  fontSize?: string | number;
-  fontHoverColor?: string;
-
-  zIndex?:number
 }
 
 export interface GhostNavbarProps extends HTMLAttributes<HTMLDivElement> {
@@ -33,7 +19,21 @@ export interface GhostNavbarProps extends HTMLAttributes<HTMLDivElement> {
   leftReveal?: boolean;
   rightReveal?: boolean; 
   backgroundBox?: boolean;
-  backgroundCircle?: boolean; 
+  backgroundCircle?: boolean;
+  
+  floatButtonX?: number;
+  floatButtonY?: number;
+  listHoverColor?: [string, string];
+
+  iconColor?: string;
+  iconWidth?: string | number;
+  iconHeight?: string | number;
+
+  fontColor?: string;
+  fontHoverColor?: string;
+  fontSize?: string | number;
+
+  zIndex?:number
 }
 
 const defaultStyles = {
@@ -42,25 +42,25 @@ const defaultStyles = {
 };
 
 export const GhostNavbar = (
-  props: GhostNavbarProps = { styles: defaultStyles }
+  props: GhostNavbarProps = { ...defaultStyles }
 ) => {
   const { styles, children, className, id, rightReveal, backgroundBox } = props;
 
 
-  const iconWidth = amplifyString(styles?.iconWidth, '2.6em', 'px');
-  const iconHeight = amplifyString(styles?.iconHeight, '2px', 'px');
-  const fontSize = amplifyString(styles?.fontSize, '3em', 'px');
+  const iconWidth = amplifyString(props?.iconWidth, '2.6em', 'px');
+  const iconHeight = amplifyString(props?.iconHeight, '2px', 'px');
+  const fontSize = amplifyString(props?.fontSize, '3em', 'px');
 
   var cssVariables = {
-    '--gn-listHoverColor-1': styles?.listHoverColor?.[0] ?? 'transparent',
-    '--gn-listHoverColor-2': styles?.listHoverColor?.[1] ?? '#fff',
-    '--gn-fontColor': styles?.fontColor ?? 'pink',
+    '--gn-listHoverColor-1': props?.listHoverColor?.[0] ?? 'transparent',
+    '--gn-listHoverColor-2': props?.listHoverColor?.[1] ?? '#fff',
+    '--gn-fontColor': props?.fontColor ?? 'pink',
     '--gn-fontSize': fontSize,
-    '--gn-fontHoverColor': styles?.fontHoverColor ?? 'blue',
-    '--gn-icon-color': styles?.iconColor ?? 'black',
+    '--gn-fontHoverColor': props?.fontHoverColor ?? 'blue',
+    '--gn-icon-color': props?.iconColor ?? 'black',
     '--gn-icon-width': iconWidth,
     '--gn-icon-height': iconHeight,
-    '--z-index' : styles?.zIndex ?? 1000
+    '--z-index' : props?.zIndex ?? 1000
   } as React.CSSProperties;
 
   const uniqueId = id ?? Math.floor(Math.random() * 30000000);
@@ -94,8 +94,8 @@ export const GhostNavbar = (
           ...styles?.navigationButton,
           width: floatButtonWidth,
           height: floatButtonHeight,
-          right: styles?.floatButtonX + 'vw',
-          top: styles?.floatButtonY + 'vh',
+          right: props?.floatButtonX + 'vw',
+          top: props?.floatButtonY + 'vh',
         }}
         data-testid={'GhostNavbar-button'}
       >
@@ -114,8 +114,8 @@ export const GhostNavbar = (
           ...styles?.navigationBackground,
           width: floatButtonWidth,
           height: floatButtonHeight,
-          right: styles?.floatButtonX + 'vw',
-          top: styles?.floatButtonY + 'vh',
+          right: props?.floatButtonX + 'vw',
+          top: props?.floatButtonY + 'vh',
         }}
         data-testid={'GhostNavbar-background'}
       >
