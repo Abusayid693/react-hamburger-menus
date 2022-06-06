@@ -27,6 +27,7 @@ export const Default = () => (
           backgroundColor: 'aliceblue',
         },
       }}
+      animationDelay = {0.3}
     />
     <h1>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fuga blanditiis ipsum consequatur eaque sequi voluptatem perspiciatis totam praesentium consectetur dolore unde sit nulla ipsa, saepe earum, deserunt quae amet?

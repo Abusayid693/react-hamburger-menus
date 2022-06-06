@@ -111,9 +111,9 @@ If you want custom styles pass your CSS styling(`Javascript Object`) in Styles p
 | floatButtonX                 | number          | `85`      | Ghost button X position from right      |
 | floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
 | listHoverColor                 | [string, string]          | `[color 1, color 2]`       | Hover animation color     |
-| fontColor, Size, HoverColor                 | **optional**         | string      |  common text styling     |
+| fontColor, fontSize, fontHoverColor                 | **optional**         | string      |  common text styling     |
 | zIndex                 | number          | **optional**          |  z-Index  (1000)      |
-
+| leftReveal, rightReveal, backgroundBox, backgroundCircle                 | string         | `leftReveal backgroundCircle`       | annimation types    |
 
 # Responsive Navbar
 
@@ -253,10 +253,9 @@ export default App;
 | floatButtonSize                 | number          | **optional**          | Ghost button size (just number)      |
 | floatButtonX                 | number          | `85`      | Ghost button X position from right      |
 | floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
-| fontColor, Size                 | **optional**         | string      |  common text styling     |
+| fontColor, fontSize                 | **optional**         | string      |  common text styling     |
 | iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
 | listHoverColor                 | string         | `aqua`       | Hover animation color     |
-| leftReveal, rightReveal, backgroundBox, backgroundCircle                 | string         | `leftReveal backgroundCircle`       | annimation     |
 | zIndex                 | number          | **optional**          |  z-Index  (1000)      |
 
 ### 🐛 Bug Reporting
