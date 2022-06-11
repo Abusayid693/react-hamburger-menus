@@ -18,7 +18,8 @@ export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   id?: string;
   logo?: ReactNode;
-
+  toggleNavigationBarSmallValue?: boolean;
+  toggleNavigationBarSmallFunction?: VoidFunction;
   iconColor?: string;
   iconWidth?: string | number;
   iconHeight?: string | number;
@@ -28,7 +29,7 @@ export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
-  const { children, styles, className, logo } = props;
+  const { children, styles, className, logo, toggleNavigationBarSmallValue, toggleNavigationBarSmallFunction } = props;
 
   const {isOpen, setToggle} = useToggle()
 
@@ -65,8 +66,8 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
             type="checkbox"
             className={`${classId}-navigation__checkbox`}
             id={`${classId}-navigation-toggle-${uniqueId}`}
-            checked={isOpen}
-            onChange={setToggle}
+            checked={toggleNavigationBarSmallValue ?? isOpen}
+            onChange={toggleNavigationBarSmallFunction ?? setToggle}
           />
           <label
             htmlFor={`${classId}-navigation-toggle-${uniqueId}`}
@@ -98,10 +99,26 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
         )}
         {children ?? (
           <ul>
-            <li>ABOUT</li>
-            <li>PROJECTS</li>
-            <li>ELEMENTS</li>
-            <li>CONTACT</li>
+            <li  onClick={() => {
+                  if(!media){
+                    useToggle().setClose
+                  }
+                  }}  >ABOUT</li>
+            <li onClick={() => {
+                  if(!media){
+                    useToggle().setClose
+                  }
+                  }} >PROJECTS</li>
+            <li onClick={() => {
+                 if(!media){
+                  useToggle().setClose
+                }
+                  }} >ELEMENTS</li>
+            <li onClick={() => {
+                   if(!media){
+                    useToggle().setClose
+                  }
+                  }} >CONTACT</li>
           </ul>
         )}
       </nav>
