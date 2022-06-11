@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
-import { useMedia } from '../../hooks';
+import { useMedia, useToggle } from '../../hooks';
 import { amplifyString } from '../../utils';
 import './style.css';
 
@@ -13,7 +13,7 @@ interface Styles {
 }
 
 export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode;
+  children: ReactNode;
   styles?: Styles;
   className?: string;
   id?: string;
@@ -30,6 +30,7 @@ export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
 export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
   const { children, styles, className, logo } = props;
 
+  const {isOpen, setToggle} = useToggle()
 
   const media = useMedia('min-width', 1000);
 
@@ -52,6 +53,7 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
     '--z-index' : props?.zIndex ?? 1000
   } as React.CSSProperties;
 
+
   return (
     <div
       className={`${classId}-navigation ${className}`}
@@ -63,6 +65,8 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
             type="checkbox"
             className={`${classId}-navigation__checkbox`}
             id={`${classId}-navigation-toggle-${uniqueId}`}
+            checked={isOpen}
+            onChange={setToggle}
           />
           <label
             htmlFor={`${classId}-navigation-toggle-${uniqueId}`}
@@ -97,7 +101,7 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
             <li>ABOUT</li>
             <li>PROJECTS</li>
             <li>ELEMENTS</li>
-            {/* <li>CONTACT</li> */}
+            <li>CONTACT</li>
           </ul>
         )}
       </nav>

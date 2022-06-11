@@ -94,6 +94,13 @@ Direct props use `ul` tag with `li` or else animations wont be applied
 | children                 | ReactNode `(ul > li)`        | **optional**          | Navbar items    |
 | className                 | string      | **optional**          | Base class    |
 | styles                 | styles object      | **optional**          | Base styles    |
+| iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
+| floatButtonX                 | number          | `85`      | Ghost button X position from right      |
+| floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
+| listHoverColor                 | [string, string]          | `[color 1, color 2]`       | Hover animation color     |
+| fontColor, fontSize, fontHoverColor                 | **optional**         | string      |  common text styling     |
+| zIndex                 | number          | **optional**          |  z-Index  (1000)      |
+| leftReveal, rightReveal, backgroundBox, backgroundCircle                 | string         | `leftReveal backgroundCircle`       | annimation types    |
 
 #### STYLES
 
@@ -107,13 +114,7 @@ If you want custom styles pass your CSS styling(`Javascript Object`) in Styles p
 | navigationButton                 | React CSS Properties           | **optional**          | Ghost button styling       |
 | navigationIcon                 | React CSS Properties           | **optional**          | Ghost icon styling       |
 | navigationBackground                 | React CSS Properties           | **optional**          | Panel background styling      |
-| iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
-| floatButtonX                 | number          | `85`      | Ghost button X position from right      |
-| floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
-| listHoverColor                 | [string, string]          | `[color 1, color 2]`       | Hover animation color     |
-| fontColor, fontSize, fontHoverColor                 | **optional**         | string      |  common text styling     |
-| zIndex                 | number          | **optional**          |  z-Index  (1000)      |
-| leftReveal, rightReveal, backgroundBox, backgroundCircle                 | string         | `leftReveal backgroundCircle`       | annimation types    |
+
 
 # Responsive Navbar
 
@@ -167,6 +168,9 @@ Direct props use `ul` tag with `li` or else animations wont be applied
 | className                 | string      | **optional**          | Base class    |
 | styles                 | styles object      | **optional**          | Base styles    |
 | logo                 | ReactNode      | **optional**          | Navbar logo   |
+| iconColor, iconWidth,  iconHeight             | string          | **optional**          | Icon styling (***toggle***)     |
+| zIndex                 | number          | **optional**          |  z-Index  (1000)      |
+| animationDelay                 | number | string          | **optional**          |  animation delay      |
 
 
 #### STYLES
@@ -182,9 +186,6 @@ If you want custom styles pass your CSS styling(`Javascript Object`) in Styles p
 | navigationButtonSmall                | React CSS Properties           | **optional**          | Navbar button small screen styling (***toggle***)     |
 | navigationCardSmall                | React CSS Properties           | **optional**          | Navbar card small screen styling (***toggle***)     |
 | navigationBarLarge                | React CSS Properties           | **optional**          | Navbar card large screen styling (***toggle***)     |
-| iconColor, iconWidth,  iconHeight             | string          | **optional**          | Icon styling (***toggle***)     |
-| zIndex                 | number          | **optional**          |  z-Index  (1000)      |
-| animationDelay                 | number | string          | **optional**          |  animation delay      |
 
 # Ghost Button
 
@@ -240,6 +241,13 @@ export default App;
 | className                 | string      | **optional**          | Base class    |
 | styles                 | styles object      | **optional**          | Base styles    |
 | icon                 | ReactNode      | **optional**          | custom icon   |
+| floatButtonSize                 | number          | **optional**          | Ghost button size (just number)      |
+| floatButtonX                 | number          | `85`      | Ghost button X position from right      |
+| floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
+| fontColor, fontSize                 | **optional**         | string      |  common text styling     |
+| iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
+| listHoverColor                 | string         | `aqua`       | Hover animation color     |
+| zIndex                 | number          | **optional**          |  z-Index  (1000)      |
 
 #### STYLES
 [Take a look at the live demo for custom styling!](https://codesandbox.io/s/react-hamburger-menu-9svje8?file=/src/GhostButton2.js)
@@ -250,13 +258,7 @@ export default App;
 | navigationButton                 | React CSS Properties           | **optional**          | Ghost button styling       |
 | navigationIcon                 | React CSS Properties           | **optional**          | Ghost icon styling       |
 | navigationCard                 | React CSS Properties           | **optional**          | Panel pop-up card styling      |
-| floatButtonSize                 | number          | **optional**          | Ghost button size (just number)      |
-| floatButtonX                 | number          | `85`      | Ghost button X position from right      |
-| floatButtonY                 | number          | `2`        | Ghost button Y position from top      |
-| fontColor, fontSize                 | **optional**         | string      |  common text styling     |
-| iconHeight, iconWidth, iconColor                 | string          | **optional**          | Icon style     |
-| listHoverColor                 | string         | `aqua`       | Hover animation color     |
-| zIndex                 | number          | **optional**          |  z-Index  (1000)      |
+
 
 ### 🐛 Bug Reporting
 `The Library is in developing stage`
