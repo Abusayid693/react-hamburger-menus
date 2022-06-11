@@ -19,11 +19,12 @@ export const Default = () => (
         fontFamily: 'font-family: "Lato", sans-serif;',
         fontWeight: '300',
       },
-      iconWidth: '30px',
-      fontColor: '#fff',
       navigationButton: {
       },
     }}
+    iconWidth = {'30px'}
+    fontColor= {'#fff'}
+    listHoverColor={["blue", "green"]}
   />
   <h1 style={{position: 'fixed', zIndex: 100}}>
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fuga blanditiis ipsum consequatur eaque sequi voluptatem perspiciatis totam praesentium consectetur dolore unde sit nulla ipsa, saepe earum, deserunt quae amet?

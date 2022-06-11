@@ -1,5 +1,5 @@
-import React, { HTMLAttributes, ReactNode, useState } from 'react';
-import { UseMedia } from '../../hooks';
+import React, { HTMLAttributes, ReactNode } from 'react';
+import { useMedia, useToggle } from '../../hooks';
 import { amplifyString } from '../../utils';
 import './style.css';
 
@@ -10,29 +10,29 @@ interface Styles {
   navigationButtonSmall?: React.CSSProperties;
 
   navigationBarLarge?: React.CSSProperties;
+}
+
+export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
+  styles?: Styles;
+  className?: string;
+  id?: string;
+  logo?: ReactNode;
 
   iconColor?: string;
   iconWidth?: string | number;
   iconHeight?: string | number;
 
   animationDelay?: number | string;
-
   zIndex?: number
-}
-
-export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode;
-  styles?: Styles;
-  className?: string;
-  id?: string;
-  logo?: ReactNode;
 }
 
 export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
   const { children, styles, className, logo } = props;
 
-  const [media, setMedia] = useState();
-  UseMedia('min-width', 1000, setMedia);
+  const {isOpen, setToggle} = useToggle()
+
+  const media = useMedia('min-width', 1000);
 
   const classId = 'rhm-rn';
   const uniqueId = Math.floor(Math.random() * 30000000);
@@ -41,17 +41,18 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
     ? { ...styles?.navigationBarLarge, ...styles?.navigationCardSmall }
     : { ...styles?.navigationBarLarge };
 
-  const animationDelay = amplifyString(styles?.animationDelay, '0.1s', 's');
-  const iconWidth = amplifyString(styles?.iconWidth, '2.6em', 'em');
-  const iconHeight = amplifyString(styles?.iconHeight, '2px', 'px');
+  const animationDelay = amplifyString(props?.animationDelay, '0.1s', 's');
+  const iconWidth = amplifyString(props?.iconWidth, '2.6em', 'em');
+  const iconHeight = amplifyString(props?.iconHeight, '2px', 'px');
 
   let cssVariables = {
-    '--rn-icon-color': styles?.iconColor ?? 'black',
+    '--rn-icon-color': props?.iconColor ?? 'black',
     '--rn-icon-width': iconWidth,
     '--rn-icon-height': iconHeight,
     '--rn-animation-delay': animationDelay,
-    '--z-index' : styles?.zIndex ?? 1000
+    '--z-index' : props?.zIndex ?? 1000
   } as React.CSSProperties;
+
 
   return (
     <div
@@ -64,6 +65,8 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
             type="checkbox"
             className={`${classId}-navigation__checkbox`}
             id={`${classId}-navigation-toggle-${uniqueId}`}
+            checked={isOpen}
+            onChange={setToggle}
           />
           <label
             htmlFor={`${classId}-navigation-toggle-${uniqueId}`}
@@ -98,7 +101,7 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
             <li>ABOUT</li>
             <li>PROJECTS</li>
             <li>ELEMENTS</li>
-            {/* <li>CONTACT</li> */}
+            <li>CONTACT</li>
           </ul>
         )}
       </nav>
