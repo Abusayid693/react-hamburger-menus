@@ -18,19 +18,27 @@ export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   id?: string;
   logo?: ReactNode;
-
+  toggleNavigationBarSmallValue?: boolean;
+  toggleNavigationBarSmallFunction?: VoidFunction;
   iconColor?: string;
   iconWidth?: string | number;
   iconHeight?: string | number;
 
   animationDelay?: number | string;
-  zIndex?: number
+  zIndex?: number;
 }
 
 export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
-  const { children, styles, className, logo } = props;
+  const {
+    children,
+    styles,
+    className,
+    logo,
+    toggleNavigationBarSmallValue,
+    toggleNavigationBarSmallFunction,
+  } = props;
 
-  const {isOpen, setToggle} = useToggle()
+  const { isOpen, setToggle } = useToggle();
 
   const media = useMedia('min-width', 1000);
 
@@ -50,9 +58,8 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
     '--rn-icon-width': iconWidth,
     '--rn-icon-height': iconHeight,
     '--rn-animation-delay': animationDelay,
-    '--z-index' : props?.zIndex ?? 1000
+    '--z-index': props?.zIndex ?? 1000,
   } as React.CSSProperties;
-
 
   return (
     <div
@@ -65,8 +72,8 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
             type="checkbox"
             className={`${classId}-navigation__checkbox`}
             id={`${classId}-navigation-toggle-${uniqueId}`}
-            checked={isOpen}
-            onChange={setToggle}
+            checked={toggleNavigationBarSmallValue ?? isOpen}
+            onChange={toggleNavigationBarSmallFunction ?? setToggle}
           />
           <label
             htmlFor={`${classId}-navigation-toggle-${uniqueId}`}
