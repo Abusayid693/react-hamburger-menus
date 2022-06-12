@@ -171,7 +171,8 @@ Direct props use `ul` tag with `li` or else animations wont be applied
 | iconColor, iconWidth,  iconHeight             | string          | **optional**          | Icon styling (***toggle***)     |
 | zIndex                 | number          | **optional**          |  z-Index  (1000)      |
 | animationDelay                 | number | string          | **optional**          |  animation delay      |
-
+| toggleNavigationBarSmallValue       | boolean         | **optional**          |  manual toggle value     |
+| toggleNavigationBarSmallFunction       | VoidFunction         | **optional**          |  manual toggle function     |
 
 #### STYLES
 

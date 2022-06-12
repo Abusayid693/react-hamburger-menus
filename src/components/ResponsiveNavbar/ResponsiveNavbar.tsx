@@ -25,13 +25,20 @@ export interface ResponsiveNavbarProps extends HTMLAttributes<HTMLDivElement> {
   iconHeight?: string | number;
 
   animationDelay?: number | string;
-  zIndex?: number
+  zIndex?: number;
 }
 
 export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
-  const { children, styles, className, logo, toggleNavigationBarSmallValue, toggleNavigationBarSmallFunction } = props;
+  const {
+    children,
+    styles,
+    className,
+    logo,
+    toggleNavigationBarSmallValue,
+    toggleNavigationBarSmallFunction,
+  } = props;
 
-  const {isOpen, setToggle} = useToggle()
+  const { isOpen, setToggle } = useToggle();
 
   const media = useMedia('min-width', 1000);
 
@@ -51,9 +58,8 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
     '--rn-icon-width': iconWidth,
     '--rn-icon-height': iconHeight,
     '--rn-animation-delay': animationDelay,
-    '--z-index' : props?.zIndex ?? 1000
+    '--z-index': props?.zIndex ?? 1000,
   } as React.CSSProperties;
-
 
   return (
     <div
@@ -99,26 +105,10 @@ export const ResponsiveNavbar = (props: ResponsiveNavbarProps) => {
         )}
         {children ?? (
           <ul>
-            <li  onClick={() => {
-                  if(!media){
-                    useToggle().setClose
-                  }
-                  }}  >ABOUT</li>
-            <li onClick={() => {
-                  if(!media){
-                    useToggle().setClose
-                  }
-                  }} >PROJECTS</li>
-            <li onClick={() => {
-                 if(!media){
-                  useToggle().setClose
-                }
-                  }} >ELEMENTS</li>
-            <li onClick={() => {
-                   if(!media){
-                    useToggle().setClose
-                  }
-                  }} >CONTACT</li>
+            <li>ABOUT</li>
+            <li>PROJECTS</li>
+            <li>ELEMENTS</li>
+            <li>CONTACT</li>
           </ul>
         )}
       </nav>
