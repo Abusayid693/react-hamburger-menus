@@ -59,7 +59,7 @@
     "@babel/core": "^7.17.8",
     "@babel/eslint-parser": "^7.17.0",
     "@size-limit/preset-small-lib": "^7.0.8",
-    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-essentials": "^7.0.2",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-links": "^6.4.19",
     "@storybook/addons": "^6.4.19",
